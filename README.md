@@ -21,7 +21,8 @@ REQUISÍTOS
 
   NÃO FUNCIONAIS
   
-    
+    O programa deve ser implementado com a linguagem de programação Java.
+    O banco de dados utilizado deverá ser o MySQL.
   
   NEGÓCIO
 
