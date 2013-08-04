@@ -11,9 +11,11 @@ EQUIPE
 
 RESUMO
 
-  A Vídeo Locadora realiza a locação de filmes e também a venda de filmes antigos. A locação poderá ser feita diretamente 
-  na locadora, pelo telefone ou pela internet. Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no 
-  sistema. 
+      Este sistema baseia-se em uma Vídeo Locadora que dispoões os serviços de locação de filmes e venda de filmes 
+  antigos, e que conta com serviço de tele-entrega. A locação dos filmes pode ser feita diretamente na locadora, ou 
+  pelo telefone no horário determinado. 
+  
+  Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no sistema.
   
 REQUISÍTOS
 
@@ -47,3 +49,4 @@ REQUISÍTOS
     Cada cliente poderá possuir apenas uma conta.
     O sistema conta com um serviço de tele-entrega pelo telefone ou pela internet.
     Os clientes poderão pagar pelos serviços no boleto, cartão de crédito ou a vista.
+    
