@@ -12,10 +12,9 @@ EQUIPE
 RESUMO
 
       Este sistema baseia-se em uma Vídeo Locadora que dispoões os serviços de locação de filmes e venda de filmes 
-  antigos, e que conta com serviço de tele-entrega. A locação dos filmes pode ser feita diretamente na locadora, ou 
-  pelo telefone no horário determinado. 
-  
-  Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no sistema.
+      antigos, e que conta com serviço de tele-entrega. A locação dos filmes pode ser feita diretamente na locadora, 
+      ou pelo telefone no horário determinado. 
+      // Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no sistema.
   
 REQUISÍTOS
 
@@ -31,9 +30,9 @@ REQUISÍTOS
     O software deve possuir um sistema de controle de estoque.
     O software deve possuir um sistema de controle de Locação.
 
-  NÃO FUNCIONAIS
+  NÃO FUNCIONAIS 
   
-    O programa deve ser implementado com a linguagem de programação Java.
+    O programa deve ser implementado com a linguagem de programação Java. 
     O banco de dados utilizado deverá ser o MySQL.
     O gerente deve ser o único a poder visualizar os ganhos diários da locadora, 
   
