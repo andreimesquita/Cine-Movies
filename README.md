@@ -1,6 +1,8 @@
 SysLocadora
 ===========
 
+REQUISÍTOS EM DESENVOLVIMENTO
+
 SISTEMA
 
   Vídeo Locadora Automatizada
