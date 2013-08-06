@@ -14,10 +14,9 @@ EQUIPE
 RESUMO
 
       Este sistema baseia-se em uma Vídeo Locadora que dispoões os serviços de locação de filmes e venda de filmes 
-      antigos, e que conta com serviço de tele-entrega. A locação dos filmes pode ser feita diretamente na locadora, 
-      ou pelo telefone no horário determinado. 
+      antigos, e também conta com serviço de tele-entrega.
       // Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no sistema.
-  
+
 REQUISÍTOS
 
   FUNCIONAIS
@@ -26,7 +25,7 @@ REQUISÍTOS
         referentes as contas dos clientes.
     O software deve permitir que o gerente, e os funcionários, cadastrem, excluam e atualizem as informações referente 
     aos produtos.
-    O software deve contar com um sistema que mostre, por meio de gráficos e formulários, as seguintes informações,
+    O software deve permitir a visualização, por meio de gráficos e formulários, as seguintes informações,
     quando o gerente solicitar:
         - Lucros/Gastos/Vendas/Compras diárias, semanais e mensais
     O software deve possuir um sistema de controle de estoque.
