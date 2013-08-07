@@ -59,7 +59,7 @@ REQUISÍTOS
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
     em forma off-line criando arquivos (.xml).
     
-  NEGÓCIO
+  REGRAS DE NEGÓCIO
 
     Os filmes classificados como 'lançamento' são aqueles que estão no mercado a 6 meses ou menos, e são representados 
     por uma faixa dourada, na capa filme.
