@@ -19,28 +19,32 @@ REQUISÍTOS
 
   FUNCIONAIS
 
-    O software deve permitir que o gerente e os funcionários cadastrem os clientes.
-    O software deve permitir que o gerente e os funcionários excluam os clientes.
-    O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos clientes.
+    O software deve permitir o cadastro de clientes.
+    O software deve permitir a exclusão de clientes.
+    O software deve permitir a atualização das informações de cadastro dos clientes.
     O software deve permitir a consulta de clientes.
-    O software deve permitir que o gerente e os funcionários cadastrem filmes.
-    O software deve permitir que o gerente e os funcionários excluam filmes.
-    O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos filmes.
+    O software deve permitir o cadastro de filmes.
+    O software deve permitir a exclusão de filmes.
+    O software deve permitir a atualização das informações de cadastro dos filmes.
     O software deve permitir a consulta de filmes.
     O software deve permitir que o cliente alugue filmes.
     O software deve permitir que o cliente compre filmes.
-    O software deve permitir que o gerente cadastre os fornecedores.
-    O software deve permitir que o gerente exclua os fornecedores.
-    O software deve permitir que o gerente altere as informações de cadastro dos fornecedores.
-    O software deve permitir que o gerente faça backup do banco de dados.
+    O software deve permitir o cadastro de fornecedores.
+    O software deve permitir a exclusão de fornecedores.
+    O software deve permitir a alteração das informações de cadastro dos fornecedores.
+    O software deve permitir que seja criado backup do banco de dados contendo a data e hora em que o backup foi
+    realizado.
     O software deve permitir que seja realizado o backup do banco de dados retornando-o a uma versão anterior.
-    O software deve permitir que o gerente visualize os arquivos de backup criados.
+    O software deve permitir a vizualização dos arquivos de backup.
     O software deve permitir a consulta de fornecedores.
     O sistema deve gerar relatórios gráficos e escritos.
     O sistema deve gerar o relatório de lucros.
     O sistema deve gerar o relatório de vendas.
     O sistema deve gerar o relatório de despesas.
     O sistema deve gerar o relatório de locações.
+    O sistema deve gerar o relatório de clientes.
+    O sistema deve gerar o relatório de filmes.
+    O sistema deve gerar o relatório de fornecedores.
     O software deve permitir a impressão de relatórios gerados.
 
   NÃO FUNCIONAIS 
@@ -61,6 +65,7 @@ REQUISÍTOS
     
   REGRAS DE NEGÓCIO
 
+    O preço de locação para os filmes em DVD são de R$ 4,50 e blu-ray R$ 5,50.
     Os filmes classificados como 'lançamento' são aqueles que estão no mercado a 6 meses ou menos, e são representados 
     por uma faixa dourada, na capa filme.
     Os filmes classificados como 'novo' são aqueles que estão no mercado entre 6 meses e 2 anos, e são representados 
