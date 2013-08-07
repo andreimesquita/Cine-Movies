@@ -23,12 +23,15 @@ REQUISÍTOS
     O software deve permitir que o gerente e os funcionários cadastrem os clientes.
     O software deve permitir que o gerente e os funcionários excluam os clientes.
     O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos clientes.
+    O software deve permitir a consunlta de clientes.
     O software deve permitir que o gerente e os funcionários cadastrem filmes.
     O software deve permitir que o gerente e os funcionários excluam filmes.
     O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos filmes.
+    O software deve permitir a consulta de filmes.
     O software deve permitir que o gerente cadastre os fornecedores.
     O software deve permitir que o gerente exclua os fornecedores.
     O software deve permitir que o gerente altere as informações de cadastro dos fornecedores.
+    O software deve permitir a consulta de fornecedores.
     O sistema deve gerar o relatório de lucros.
     O sistema deve gerar o relatório de vendas.
     O sistema deve gerar o relatório de despesas.
