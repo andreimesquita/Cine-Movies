@@ -46,6 +46,7 @@ REQUISÍTOS
     O sistema deve gerar o relatório de filmes.
     O sistema deve gerar o relatório de fornecedores.
     O software deve permitir a impressão de relatórios gerados.
+    O software deve gerar a nota fiscal.
 
   NÃO FUNCIONAIS 
 
