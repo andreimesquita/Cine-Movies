@@ -5,7 +5,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
 
 SISTEMA
 
-  Vídeo Locadora Automatizada
+  Vídeo Locadora
 
 EQUIPE
 
@@ -15,38 +15,50 @@ RESUMO
 
       Este sistema baseia-se em uma Vídeo Locadora que dispoões os serviços de locação de filmes e venda de filmes 
       antigos, e também conta com serviço de tele-entrega.
-      // Os clientes que quiserem locar filmes deverão obrigatóriamente possuir uma conta no sistema.
 
 REQUISÍTOS
 
   FUNCIONAIS
 
-    O software deve possibilitar ao gerente, e aos funcionários, o cadastro, a exclusão e a atualização de informações 
-        referentes as contas dos clientes.
-    O software deve permitir que o gerente, e os funcionários, cadastrem, excluam e atualizem as informações referente 
-    aos produtos.
-    O software deve permitir a visualização, por meio de gráficos e formulários, as seguintes informações,
-    quando o gerente solicitar:
-        - Lucros/Gastos/Vendas/Compras diárias, semanais e mensais
-    O software deve possuir um sistema de controle de estoque.
-    O software deve possuir um sistema de controle de Locação.
+    O software deve permitir que o gerente e os funcionários cadastrem os clientes.
+    O software deve permitir que o gerente e os funcionários excluam os clientes.
+    O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos clientes.
+    O software deve permitir que o gerente e os funcionários cadastrem filmes.
+    O software deve permitir que o gerente e os funcionários excluam filmes.
+    O software deve permitir que o gerente e os funcionários atualizem as informações de cadastro dos filmes.
+    O software deve permitir que o gerente cadastre os fornecedores.
+    O software deve permitir que o gerente exclua os fornecedores.
+    O software deve permitir que o gerente altere as informações de cadastro dos fornecedores.
+    O sistema deve gerar o relatório de lucros.
+    O sistema deve gerar o relatório de vendas.
+    O sistema deve gerar o relatório de despesas.
+    O sistema deve gerar o relatório de locações.
+    O sistema deve gerar relatórios com gráficos.
+    O sistema deve imprimir os relatórios gerados.
+    O software deve permitir que o cliente alugue filmes
+    O software deve permitir que o cliente compre filmes.    
 
   NÃO FUNCIONAIS 
   
     O programa deve ser implementado com a linguagem de programação Java. 
     O banco de dados utilizado deverá ser o MySQL.
-    O gerente deve ser o único a poder visualizar os ganhos diários da locadora, 
-  
+    
   SEGURANÇA
   
-    O software deve contar com um serviço de login próprio para o gerente e os funcionários.
-    O software deve conter dois tipos 
-    As senhas devem ser salvas   e encriptada.
-    
+    O software deve contar com serviço de autenticação de funcionários e gerente.
+    As senhas devem ser salvas utilizando encriptação do tipo MD5.
   
   NEGÓCIO
 
-    Cada cliente poderá possuir apenas uma conta.
-    O sistema conta com um serviço de tele-entrega pelo telefone ou pela internet.
-    Os clientes poderão pagar pelos serviços no boleto, cartão de crédito ou a vista.
-    
+    O tempo máxima de aluguel dos filmes é de 3 (três) dias.
+    Os filmes são classificados em 3 três categorias: 'Lançamento', 'Novo' e 'Antigo'.
+    Os filmes classificados como 'lançamento' são aqueles que estão no mercado a 6 meses ou menos. (Faixa Dourada)
+    Os filmes classificados como 'novo' ... (Faixa Prateada)
+    Os filmes classificados como 'antigo' ... (Faixa Azul)
+    O tempo máximo para locação dos filmes classificados como 'lançamento' é de 24 horas.
+    O tempo máximo para locação dos filmes classificados como 'novo' é de XX horas.
+    O tempo máximo para locação dos filmes classificados como 'antigo' é de XX horas.
+    As multas são de 100% do valor de locação.
+    Os filmes que não são entregues no prazo contam com uma multa a cada 24 horas.
+    O sistema conta com um serviço de tele-entrega.
+    Na primeira locação, o cliente poderá levar no máximo 3 (três) filmes.
