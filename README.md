@@ -79,3 +79,5 @@ REQUISÍTOS
     Os filmes que não são entregues no prazo contam como uma nova locação.
     O sistema conta com um serviço de tele-entrega, das 13 as 16 horas.
     Na primeira locação, o cliente poderá levar no máximo 3 (três) filmes.
+
+  linha nula
