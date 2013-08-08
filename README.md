@@ -77,5 +77,5 @@ REQUISÍTOS
     O tempo máximo para locação dos filmes classificados como 'novo' é de 72 horas (3 dias).
     O tempo máximo para locação dos filmes classificados como 'antigo' é de 120 horas (5 dias).
     Os filmes que não são entregues no prazo contam como uma nova locação.
-    O sistema conta com um serviço de tele-entrega, funcional das 13 as 16 horas.
+    O sistema conta com um serviço de tele-entrega, das 13 as 16 horas.
     Na primeira locação, o cliente poderá levar no máximo 3 (três) filmes.
