@@ -1,23 +1,31 @@
-SysLocadora
+# SysLocadora
 ===========
 
 REQUISÍTOS EM DESENVOLVIMENTO
 
-SISTEMA
+* [Sistema](#sistema)
+* [Equipe](#equipe)
+* [Resumo](#resumo)
+* [Requisítos](#requisitos)
+  * [Funcionais](#funcionais)
+  * [Não Funcionais](#nao-funcionais)
+  * [Negócio](#negocio)
+
+## SISTEMA
 
   Vídeo Locadora
 
-EQUIPE
+## EQUIPE
 
   Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
 
-RESUMO
+## RESUMO
 
       Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
 
-REQUISÍTOS
+## REQUISÍTOS
 
-  FUNCIONAIS
+  ## FUNCIONAIS
 
     O software deve permitir o cadastro de clientes.
     O software deve permitir a exclusão de clientes.
@@ -48,7 +56,7 @@ REQUISÍTOS
     O software deve permitir a impressão de relatórios gerados.
     O software deve gerar a nota fiscal.
 
-  NÃO FUNCIONAIS 
+  ## NÃO FUNCIONAIS 
 
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito em Java.
@@ -64,7 +72,7 @@ REQUISÍTOS
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
     em forma off-line criando arquivos (.xml).
     
-  REGRAS DE NEGÓCIO
+  ## REGRAS DE NEGÓCIO
 
     O preço de locação para os filmes em DVD são de R$ 4,50 e blu-ray R$ 5,50.
     Os filmes classificados como 'lançamento' são aqueles que estão no mercado a 6 meses ou menos, e são representados 
@@ -79,5 +87,3 @@ REQUISÍTOS
     Os filmes que não são entregues no prazo contam como uma nova locação.
     O sistema conta com um serviço de tele-entrega, das 13 as 16 horas.
     Na primeira locação, o cliente poderá levar no máximo 3 (três) filmes.
-
-  linha nula
