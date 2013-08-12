@@ -21,7 +21,7 @@
 
 ## RESUMO
 
-      Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
+    '''Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.'''
 
 ## REQUISÍTOS FUNCIONAIS
 
