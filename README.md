@@ -6,10 +6,9 @@ REQUISÍTOS EM DESENVOLVIMENTO
 * [Sistema](#sistema)
 * [Equipe](#equipe)
 * [Resumo](#resumo)
-* [Requisítos](#requis%C3%8Dtos)
-  * [Funcionais](#funcionais)
-  * [Não Funcionais](#nao-funcionais)
-  * [Negócio](#negocio)
+* [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
+* [Requisítos Não Funcionais](#requis%C3%8Dtos-n%C3%83o-funcionais)
+* [Regras de Negócio](#regras-de-neg%C3%93cio)
 
 ## SISTEMA
 
@@ -23,9 +22,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
 
       Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
 
-## REQUISÍTOS
-
-##   FUNCIONAIS
+## REQUISÍTOS FUNCIONAIS
 
     O software deve permitir o cadastro de clientes.
     O software deve permitir a exclusão de clientes.
