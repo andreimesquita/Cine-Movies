@@ -10,13 +10,13 @@
 * [Requisítos Não Funcionais](#requis%C3%8Dtos-n%C3%83o-funcionais)
 * [Regras de Negócio](#regras-de-neg%C3%93cio)
 
-## EQUIPE
-
-    Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
-
 ## RESUMO
 
     Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
+
+## EQUIPE
+
+    Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
 
 ## REQUISÍTOS FUNCIONAIS
 
