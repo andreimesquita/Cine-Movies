@@ -12,11 +12,11 @@ REQUISÍTOS EM DESENVOLVIMENTO
 
 ## SISTEMA
 
-  Vídeo Locadora
+    Vídeo Locadora
 
 ## EQUIPE
 
-  Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
+    Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
 
 ## RESUMO
 
