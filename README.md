@@ -3,10 +3,10 @@
 
 REQUISÍTOS EM DESENVOLVIMENTO
 
-* [Sistema](#sistema)
+* ![Sistema](#sistema)
 * [Equipe](#equipe)
 * [Resumo](#resumo)
-* [Requisítos](#requisitos)
+* [Requisítos](#requis%C3%8Dtos)
   * [Funcionais](#funcionais)
   * [Não Funcionais](#nao-funcionais)
   * [Negócio](#negocio)
@@ -25,7 +25,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
 
 ## REQUISÍTOS
 
-  ## FUNCIONAIS
+##   FUNCIONAIS
 
     O software deve permitir o cadastro de clientes.
     O software deve permitir a exclusão de clientes.
@@ -56,7 +56,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
     O software deve permitir a impressão de relatórios gerados.
     O software deve gerar a nota fiscal.
 
-  ## NÃO FUNCIONAIS 
+##   NÃO FUNCIONAIS 
 
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito em Java.
@@ -72,7 +72,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
     em forma off-line criando arquivos (.xml).
     
-  ## REGRAS DE NEGÓCIO
+##   REGRAS DE NEGÓCIO
 
     O preço de locação para os filmes em DVD são de R$ 4,50 e blu-ray R$ 5,50.
     Os filmes classificados como 'lançamento' são aqueles que estão no mercado a 6 meses ou menos, e são representados 
