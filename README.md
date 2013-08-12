@@ -4,16 +4,11 @@
 
     REQUISÍTOS EM DESENVOLVIMENTO...
 
-* [Sistema](#sistema)
-* [Equipe](#equipe)
 * [Resumo](#resumo)
+* [Equipe](#equipe)
 * [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
 * [Requisítos Não Funcionais](#requis%C3%8Dtos-n%C3%83o-funcionais)
 * [Regras de Negócio](#regras-de-neg%C3%93cio)
-
-## SISTEMA
-
-    Vídeo Locadora
 
 ## EQUIPE
 
