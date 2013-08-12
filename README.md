@@ -3,7 +3,7 @@
 
 REQUISÍTOS EM DESENVOLVIMENTO
 
-* ![Sistema](#sistema)
+* [Sistema](#sistema)
 * [Equipe](#equipe)
 * [Resumo](#resumo)
 * [Requisítos](#requis%C3%8Dtos)
