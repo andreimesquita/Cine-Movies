@@ -21,7 +21,7 @@
 
 ## RESUMO
 
-    '''Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.'''
+    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
 
 ## REQUISÍTOS FUNCIONAIS
 
@@ -43,7 +43,6 @@
     O software deve permitir que seja realizado o backup do banco de dados retornando-o a uma versão anterior.
     O software deve permitir a vizualização dos arquivos de backup.
     O software deve permitir a consulta de fornecedores.
-    O sistema deve gerar relatórios gráficos e escritos.
     O sistema deve gerar o relatório de lucros.
     O sistema deve gerar o relatório de vendas.
     O sistema deve gerar o relatório de despesas.
@@ -56,6 +55,7 @@
 
 ##  REQUISÍTOS NÃO FUNCIONAIS 
 
+    O sistema deve gerar relatórios gráficos e escritos.
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito em Java.
     O banco de dados utilizado deve ser o PostgreSQL.
