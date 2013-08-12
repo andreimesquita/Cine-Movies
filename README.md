@@ -53,7 +53,7 @@ REQUISÍTOS EM DESENVOLVIMENTO
     O software deve permitir a impressão de relatórios gerados.
     O software deve gerar a nota fiscal.
 
-##   NÃO FUNCIONAIS 
+##  REQUISÍTOS NÃO FUNCIONAIS 
 
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito em Java.
