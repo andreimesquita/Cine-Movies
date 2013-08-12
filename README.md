@@ -1,7 +1,8 @@
 # SysLocadora
-===========
 
-REQUISÍTOS EM DESENVOLVIMENTO
+![logo](http://imageshack.us/a/img89/8919/hy6m.jpg)
+
+    REQUISÍTOS EM DESENVOLVIMENTO...
 
 * [Sistema](#sistema)
 * [Equipe](#equipe)
