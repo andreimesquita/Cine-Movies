@@ -2,8 +2,6 @@
 
 ![logo](http://imageshack.us/a/img89/8919/hy6m.jpg)
 
-    REQUISÍTOS EM DESENVOLVIMENTO...
-
 * [Resumo](#resumo)
 * [Equipe](#equipe)
 * [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
