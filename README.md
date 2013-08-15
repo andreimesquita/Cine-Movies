@@ -12,7 +12,8 @@
 
 ## RESUMO
 
-    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços como locação e venda de filmes.
+    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços de locação e venda de filmes, cadastro 
+    de clientes e fornecedores.
 
 ## EQUIPE
 
