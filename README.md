@@ -2,6 +2,7 @@
 
 ![logo](http://imageshack.us/a/img89/8919/hy6m.jpg)
 
+
 * [Resumo](#resumo)
 * [Equipe](#equipe)
 * [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
@@ -63,7 +64,7 @@
     Não existe limitação em relação a quantos backups podem ser realizados.
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
     em forma off-line criando arquivos (.xml).
-    
+
 ##   REGRAS DE NEGÓCIO
 
     O preço de locação para os filmes em DVD são de R$ 4,50 e blu-ray R$ 5,50.
