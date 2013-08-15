@@ -1,4 +1,4 @@
-<b>Backup (MySQL) pelo CMD</b>
+<p size=24><b>Backup (MySQL) pelo CMD</b></p>
 
   <i>-> O Objetivo é possibilitar que o cliente faça o backup quando ele quiser. A maneira mais simples que 
   conheço é executar o comando que realiza o backup diretamente do cmd. Isto é, o Java recuperará o Console do
@@ -7,7 +7,7 @@
 
     http://www.thiagopassamani.com.br/dicas/dump-mysql-no-windows.html
   
-<b>Adicionar JButton em uma  JTable</b>
+<p size=24><b>Adicionar JButton em uma  JTable</b></p>
 
   <i>Precisarei disto para manter uma tabela mais amigável.</i>
 
