@@ -7,7 +7,7 @@ import java.util.List;
 import modelo.Cliente;
 import bd.ConfigConnection;
 import bd.ErroDeConexao;
-import daoimplementacao.dao.ClienteDAO;
+import daoimplementation.dao.ClienteDAO;
 
 public class ClienteDAOImpl implements ClienteDAO {
 
