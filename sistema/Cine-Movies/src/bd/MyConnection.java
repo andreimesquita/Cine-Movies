@@ -27,12 +27,6 @@ interface MyConnection
 	 * @deprecated NÃO SEI SE ESTA É A URL CORRETA PARA REALIZAR A CONEXÃO COM O BANCO DE DADOS ORACLE.
 	 */
 	String ORACLE = "jdbc:oracle:thin://";
-	/**
-	 * Método que realiza a conexão com o banco de dados a partir das informações enviadas como parâmetro para o método
-	 * <i>getConnection(url,login,senha)</i>.
-	 * @throws SQLException Este método lança a excessão <n>SQLException</n>.
-	 */	
-	public void conectar() throws SQLException;
 	/** 
 	 * Conecta ao banco de dados que já foi préviamente conectado anteriormente com o método
 	 * <b>conectar(...)</b>.
@@ -40,12 +34,6 @@ interface MyConnection
 	 * @throws SQLException Este método lança a excessão <n>SQLException</n>.
 	 */
 	public void reconectar() throws SQLException;
-	/**
-	 * Este método fecha a conexão com o banco de dados. <n>Você deve chamar o método <i>conectar()</i> novamente se quiser 
-	 * realizar novas consultas ou atualizações no banco de dados.</n>
-	 * @throws SQLException Este método lança a excessão <n>SQLException</n>.
-	 */
-	public void desconectar() throws SQLException;
 	/**
 	 *     Este método realiza a operação de <b>consulta</b> no o banco de dados, retornando um objeto
 	 * do tipo ResultSet.

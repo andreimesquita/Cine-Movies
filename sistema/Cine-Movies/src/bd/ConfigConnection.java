@@ -103,7 +103,7 @@ public class ConfigConnection implements MyConnection
 	{
 		if (cc == null)
 		{
-			cc = new ConfigConnection(true);
+			cc = new ConfigConnection();
 		}
 		return cc;
 	}
@@ -120,7 +120,7 @@ public class ConfigConnection implements MyConnection
 		this.dbUrl = "jdbc:mysql://";
 		this.ip = "localhost";
 		this.porta = "3306";
-		this.banco = "cinevideos";
+		this.banco = "test";
 		this.gerarUrl();
 	}
 	/**
@@ -191,10 +191,10 @@ public class ConfigConnection implements MyConnection
 	 * Método que realiza a conexão com o banco de dados a partir das informações enviadas como parâmetro para o método
 	 * <i>getConnection(url,login,senha)</i>.
 	 * @throws SQLException Este método lança a excessão <n>SQLException</n>.
-	 */
-	public synchronized void conectar() throws SQLException
+	 */	
+	public void conectar() throws SQLException
 	{
-		con = DriverManager.getConnection(url,login,senha);
+		con = DriverManager.getConnection(this.url,login,senha);
 	}
 	/** 
 	 * @deprecated
