@@ -1,6 +1,6 @@
 * [Requisítos Funcionais](#requisítos-funcionais)
-* [Requisítos Não Funcionais](#requis%C3%ADtos-n%C3%A3o-funcionais)
-* [Regras de Negócio](#regras-de-neg%C3%B3cio)
+* [Requisítos Não Funcionais](#requis%C3%8Dtos-n%C3%83o-funcionais)
+* [Regras de Negócio](#regras-de-neg%C3%93cio)
 
 ## REQUISÍTOS FUNCIONAIS
 
