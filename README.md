@@ -6,8 +6,7 @@
 * [Resumo](#resumo)
 * [Equipe](#equipe)
 
-
-* <a href="/requisítos.md">requisítos.md</a>
+* <a href="/requisítos.md">-> Requisítos</a>
 
 ## RESUMO
 
