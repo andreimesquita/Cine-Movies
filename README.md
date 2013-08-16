@@ -6,7 +6,7 @@
 * [Resumo](#resumo)
 * [Equipe](#equipe)
 * [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
-* <a href="/andreimesquita/Cine-Movies/blob/master/BD.md">BD.md</a>
+* <a href="/BD.md">BD.md</a>
 * Requisítos Não Funcionais
 * [Regras de Negócio](#regras-de-neg%C3%93cio)
 
