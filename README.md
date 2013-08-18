@@ -10,8 +10,7 @@
 
 ## RESUMO
 
-    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços de locação de filmes, tele-entrega, e cadastro 
-    de clientes e fornecedores.
+    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços de locação de filmes e tele-entrega.
 
 ## EQUIPE
 
