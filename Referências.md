@@ -12,3 +12,15 @@
   <i>Precisarei disto para manter uma tabela mais amigável.</i>
 
     http://stackoverflow.com/questions/2069641/adding-buttons-inside-cell-of-jtable-along-with-data
+
+<font size="5"><b>Requisítos, Diagrama de Atividade e Diagrama de Classe</b></font>
+
+    Revistas:
+    - Engenharia de Software 12, 13, 27 e 31.
+    - Vídeo aulas das revistas.
+
+<font size="5"><b>Padrões de Projeto</b></font>
+
+    Revistas:
+    - Easy Java Magazine 13
+    - Vídeo aula da revista.
