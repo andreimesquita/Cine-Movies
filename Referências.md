@@ -33,3 +33,6 @@ Informações sobre o Fornecedor:
 Exemplos:
 
     http://sisgel.com/locadoras/
+    http://images01.olx.com.br/ui/14/40/00/1361579905_481164000_4-Sistema-Para-Locadora-De-Videos-E-
+    Jogos-Com-Fontes-Em-Delphi-Eletronicos-Telefonia.jpg
+    http://www.csimaster.com/codigofonte/locamaster/
