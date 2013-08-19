@@ -28,3 +28,4 @@
 Informações sobre o Fornecedor:
 
     http://www.portalcompras.ce.gov.br/categoria5
+    Máscara do CNPJ: 11.444.777/0001-XX 
