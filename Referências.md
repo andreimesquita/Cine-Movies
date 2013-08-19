@@ -24,3 +24,7 @@
     Revistas:
     - Easy Java Magazine 13
     - Vídeo aula da revista.
+
+Informações sobre o Fornecedor:
+
+    http://www.portalcompras.ce.gov.br/categoria5
