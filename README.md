@@ -11,6 +11,7 @@
 ## RESUMO
 
     Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços de locação de filmes e tele-entrega.
+    O cliente, e pessoas autorizadas por ele, podem alugar filmes em DVD e Blu-ray.
 
 ## EQUIPE
 
