@@ -6,9 +6,12 @@
 ## REQUISÍTOS FUNCIONAIS
 
     O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem seus clientes.
-    O software deve permitir que o gerente visualize o relatório de filmes locados por cada cliente e por todos.
+    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem as pessoas 
+    autorizadas por cada cliente.
+    O software deve permitir que o gerente visualize o relatório de filmes locados por cada cliente.
+    O software deve permitir que o gerente visualize e atualize o saldo de cada cliente.
     O software deve permitir que os funcionários visualizem uma lista com os clientes cadastrados.
-    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem seus filmes.
+    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem os filmes.
     O software deve permitir que os funcionários, e o gerente, cadastrem, alterem, excluam e consultem seus fornecedores.
     O software deve guardar a data e hora em que os clientes, filmes e fornecedores forem cadastrados, alterados e excluídos.
     O software deve permitir que o cliente alugue filmes.
