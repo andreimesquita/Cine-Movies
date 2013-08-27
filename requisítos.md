@@ -20,7 +20,8 @@
     O software deve permitir que o gerente restaure o banco de dados a partir das cópias de backup.
     O sistema deve permitir que o gerente visualize o relatório de lucros, vendas, filmes mais locados, menos locados, novos e antigos.
     O sistema deve permitir que o gerente visualize o relatório de generos mais locados, e menos locados, de forma geral e por cada cliente.
-    O software deve permitir a impressão de relatórios por meio da ferramenta IReport (JasperReports).
+    O cliente, e pessoas autorizadas por ele, podem alugar filmes em DVD e Blu-ray.
+    O software deve permitir a impressão de relatórios.
     O software deve guardar as informações de locações realizadas com a data.
 
 ##  REQUISÍTOS NÃO FUNCIONAIS
@@ -28,7 +29,7 @@
     O sistema deve gerar relatórios gráficos e escritos.
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito na linguagem de programação Java.
-    O banco de dados utilizado deve ser o PostgreSQL ou MySQL.
+    O base de dados utilizada deverá ser o <a  target="_blank" href="http://www.h2database.com/html/main.html">H2DB</a>, por ser mais leve e rápido.
     Os arquivos de backup criados devem ser salvos em uma pasta padrão do programa.
     Não existe limitação em relação a quantos backups podem ser realizados.
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
