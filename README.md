@@ -10,8 +10,23 @@
 
 ## RESUMO
 
-    Este sistema baseia-se em uma Vídeo Locadora que dispõe de serviços de locação de filmes e tele-entrega.
-    O cliente, e pessoas autorizadas por ele, podem alugar filmes em DVD e Blu-ray.
+    Sistema para uma Vídeo Locadora.
+    Funcionalidades:
+        - Cadastro, Consulta, Alteração e Exclusão de Cliente
+        - Cadastro, Consulta, Alteração e Exclusão de Funcionário
+        - Cadastro, Consulta, Alteração e Exclusão de Fornecedor
+        - Cadastro, Consulta, Alteração e Exclusão de Filme
+        - Cadastro, Consulta, Alteração e Exclusão de Gênero
+        - Cadastro, Consulta, Alteração e Exclusão de Tipo 
+            (DVD,Blu-ray...)
+        - Cadastro, Consulta, Alteração e Exclusão de Classificação
+        - Cadastro, Consulta, Alteração e Exclusão de Localização 
+            (Local onde o filme se encontra; exemplo: 'Prateleira 1')
+        - Cadastro, Consulta, Alteração e Exclusão de Diretor
+        - Cadastro, Consulta, Alteração e Exclusão de Ator
+        - Cadastro, Consulta, Alteração e Exclusão de Especie
+    Serviços:
+        - Locação de Filmes
 
 ## EQUIPE
 
