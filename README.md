@@ -27,6 +27,7 @@
         - Cadastro, Consulta, Alteração e Exclusão de Especie
     Serviços:
         - Locação de Filmes
+        ...
 
 ## EQUIPE
 
