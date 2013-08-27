@@ -29,7 +29,7 @@
     O sistema deve gerar relatórios gráficos e escritos.
     Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
     O programa deve ser feito na linguagem de programação Java.
-    O base de dados utilizada deverá ser o <a  target="_blank" href="http://www.h2database.com/html/main.html">H2DB</a>, por ser mais leve e rápido.
+    O base de dados utilizada deverá ser o H2DB, por ser mais leve e rápido. http://www.h2database.com/html/main.html
     Os arquivos de backup criados devem ser salvos em uma pasta padrão do programa.
     Não existe limitação em relação a quantos backups podem ser realizados.
     Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
