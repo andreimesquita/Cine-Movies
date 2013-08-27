@@ -1,6 +1,6 @@
 # CINE-MOVIES
 
-![logo](http://imageshack.us/a/img89/8919/hy6m.jpg)
+![logo](http://static.tumblr.com/48476dd23aa5c2b53b1db6a1c90aa5ce/po0aska/Ykxmi63xy/tumblr_static_cine1.jpg)
 
 
 * [Resumo](#resumo)
