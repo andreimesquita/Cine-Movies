@@ -6,7 +6,7 @@
 * [Resumo](#resumo)
 * [Equipe](#equipe)
 * [Sistemas Similares](#sistemas-similares)
-* <a href="/requisítos.md">Ir para os Requisítos</a>
+* <a href="/requisítos.md">Requisítos</a>
 
 ## RESUMO
 
