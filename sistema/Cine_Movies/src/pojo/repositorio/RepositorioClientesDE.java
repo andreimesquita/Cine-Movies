@@ -1,6 +1,6 @@
 package pojo.repositorio;
 
-import pojo.repositorio.modelo.Cliente;
+import pojo.modelo.Cliente;
 /** 
  * Repositório dos clientes.
  */

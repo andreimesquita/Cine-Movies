@@ -3,8 +3,8 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import pojo.modelo.Cliente;
 import pojo.repositorio.RepositorioClientesDE;
-import pojo.repositorio.modelo.Cliente;
 import bd.ConfigConnection;
 
 public class ClienteDAOImpl implements ClienteDAO {

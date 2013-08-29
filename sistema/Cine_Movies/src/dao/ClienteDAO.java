@@ -2,8 +2,8 @@ package dao;
 
 import java.sql.SQLException;
 
+import pojo.modelo.Cliente;
 import pojo.repositorio.RepositorioClientesDE;
-import pojo.repositorio.modelo.Cliente;
 
 public interface ClienteDAO {
 	String TUDO = "SELECT * FROM cliente";
