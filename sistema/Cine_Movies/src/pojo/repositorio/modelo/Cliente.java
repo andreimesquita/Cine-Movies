@@ -1,4 +1,4 @@
-package repositorio.modelo;
+package pojo.repositorio.modelo;
 
 import java.sql.Date;
 

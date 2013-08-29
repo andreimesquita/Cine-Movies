@@ -1,6 +1,6 @@
-package janela;
+package gui.janela;
 
-import janela.cliente.TestAdministrarClientes;
+import gui.cliente.AdministrarClientes;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -87,7 +87,7 @@ public class Janela extends JFrame
 				
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					new TestAdministrarClientes(Janela.this);
+					new AdministrarClientes(Janela.this);
 				}
 			});
 		}

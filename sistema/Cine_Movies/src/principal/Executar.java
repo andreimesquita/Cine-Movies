@@ -1,6 +1,6 @@
 package principal;
 
-import janela.Janela;
+import gui.janela.Janela;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;

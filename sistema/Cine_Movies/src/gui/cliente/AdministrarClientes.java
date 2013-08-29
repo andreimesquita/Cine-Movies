@@ -1,4 +1,4 @@
-package janela.cliente;
+package gui.cliente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -39,7 +39,7 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class TestAdministrarClientes extends JDialog {
+public class AdministrarClientes extends JDialog {
 	/**
 	 * 
 	 */
@@ -65,7 +65,7 @@ public class TestAdministrarClientes extends JDialog {
 	private JDateChooser dcNascimento;
 	private JFormattedTextField tfDataCadastro;
 	/** Construtor da classe para fins de teste. */
-	public TestAdministrarClientes(JFrame janela)
+	public AdministrarClientes(JFrame janela)
 	{
 		super(janela, "Administrar Clientes", false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -447,7 +447,7 @@ public class TestAdministrarClientes extends JDialog {
 			
 			private void atualizar()
 			{
-				JOptionPane.showMessageDialog(TestAdministrarClientes.this, "Enter!");
+				JOptionPane.showMessageDialog(AdministrarClientes.this, "Enter!");
 			}
 		});
 		tfPesquisar.setHorizontalAlignment(SwingConstants.LEFT);
@@ -477,7 +477,7 @@ public class TestAdministrarClientes extends JDialog {
 			new Runnable() {
 				@Override
 				public void run() {
-					new TestAdministrarClientes(null);
+					new AdministrarClientes(null);
 				}
 			}
 		);
@@ -509,7 +509,7 @@ public class TestAdministrarClientes extends JDialog {
 				cep = new MaskFormatter("#####-###");
 				cep.setPlaceholderCharacter('_');
 			} catch (ParseException e) {
-				JOptionPane.showMessageDialog(TestAdministrarClientes.this,"ERRO: Não foi possível "
+				JOptionPane.showMessageDialog(AdministrarClientes.this,"ERRO: Não foi possível "
 						+ "criar as máscaras dos campos da janela.");
 			}
 		}
