@@ -5,6 +5,7 @@
 
 * [Resumo](#resumo)
 * [Equipe](#equipe)
+* [Sistemas Similares](#sistemas-similares)
 
 * <a href="/requisítos.md">Ir para os Requisítos</a>
 
@@ -32,3 +33,6 @@
 ## EQUIPE
 
     Ândrei d'Oliveira Mesquita Schuch - andreirs@outlook.com
+
+## SISTEMAS SIMILARES
+    <a href="http://www.csimaster.com/codigofonte/locamaster/">Locamaster<a/>
