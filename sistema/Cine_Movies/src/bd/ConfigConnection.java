@@ -133,11 +133,6 @@ public class ConfigConnection implements MyConnection
 	{
 		if (cc == null)
 		{
-			try {
-				Class.forName("org.h2.Driver");
-			} catch (ClassNotFoundException e) {
-				System.out.println("Driver não encontrado!");
-			}
 			cc = new ConfigConnection();
 		}
 		return cc;

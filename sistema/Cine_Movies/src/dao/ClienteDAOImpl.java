@@ -20,6 +20,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
 	@Override
 	public RepositorioClientesDE getTodosOsClientes() throws SQLException {
+		cc.conectar();
 		ResultSet rs = cc.consultar(ClienteDAO.TUDO);
 		if (rs == null) throw new NullPointerException("A lista de clientes está vazia."); 		
 		clientes = new RepositorioClientesDE();
@@ -27,18 +28,18 @@ public class ClienteDAOImpl implements ClienteDAO {
 		{
 			Cliente cli = new Cliente 
 			(
-				rs.getInt("codigo"),
+				rs.getInt("cod"),
 				rs.getString("nome"),
 				rs.getString("cpf"),
 				rs.getString("rg"),
 				rs.getString("sexo"),
 				rs.getDate("data_nascimento"),
 				rs.getDate("data_cadastro"),
-				rs.getString("tel_fixo"),
-				rs.getString("tel_celular"),
+				rs.getString("telefone_fixo"),
+				rs.getString("telefone_celular"),
 				rs.getString("cep"),
-				rs.getInt("cidade_cod_fk"),
-				rs.getInt("bairro_cod_fk"),
+				rs.getInt("cidade_cod"),
+				rs.getInt("bairro_cod"),
 				rs.getString("logradouro"),
 				rs.getInt("numero"),
 				rs.getString("complemento"),
@@ -46,6 +47,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 			);
 			clientes.add(cli);
 		}
+		cc.desconectar();
 		return this.clientes;
 	}
 
