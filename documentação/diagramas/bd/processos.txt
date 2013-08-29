@@ -1,0 +1,19 @@
+Locação
+	<ABRE A JANELA DE LOCAÇÕES>
+	[selecionar todos os clientes e seus respectivos autorizados]
+	<MOSTRA A LISTA COM TODOS OS CLIENTES>
+	Selecionar cliente
+		SELECIONAR TODOS OS CLIENTES E EXIBI-LOS EM LISTA
+		<O FUNCIONÁRIO SELECIONA O CLIENTE>
+	Selecionar filmes
+		[a lista de filmes aparece em branco]
+	    <MOSTRA LISTA NO PAINEL INFERIOR>
+		enquanto existir algum filme a ser adicionado faça
+		    Se o funcionário pressionar o botão 'ADICIONAR NOVO FILME' então
+				[RETORNA A LISTA DE FILMES COM SEU RESPECTIVO GÊNERO, DIRETOR, ATORES E CLASSIFICAÇÃO]
+				<MOSTRAR LISTA DE FILMES>
+				O Funcionário pesquisa o filme por código, título, categoria, gênero, diretor ou ator
+			Fim_Se
+		fim_enquanto
+	Finalizar transação
+		Imprimir nota fiscal [RELATÓRIO DA LOCAÇÃO]
