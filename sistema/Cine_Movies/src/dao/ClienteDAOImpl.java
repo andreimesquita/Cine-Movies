@@ -1,87 +1,242 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
-import pojo.modelo.Cliente;
-import pojo.repositorio.RepositorioClientesDE;
-import bd.ConfigConnection;
+import pojo.Cliente;
 
 public class ClienteDAOImpl implements ClienteDAO {
 
-	private RepositorioClientesDE clientes;
-	private ConfigConnection cc;
-	
-	public ClienteDAOImpl()
-	{
-		cc = ConfigConnection.getConfigConnection();
-		clientes = new RepositorioClientesDE();
-	}
-
 	@Override
-	public RepositorioClientesDE getTodosOsClientes() throws SQLException {
-		cc.conectar();
-		ResultSet rs = cc.consultar(ClienteDAO.TUDO);
-		if (rs == null) throw new NullPointerException("A lista de clientes está vazia."); 		
-		clientes = new RepositorioClientesDE();
-		while (rs.next())
-		{
-			Cliente cli = new Cliente 
-			(
-				rs.getInt("cod"),
-				rs.getString("nome"),
-				rs.getString("cpf"),
-				rs.getString("rg"),
-				rs.getString("sexo"),
-				rs.getDate("data_nascimento"),
-				rs.getDate("data_cadastro"),
-				rs.getString("telefone_fixo"),
-				rs.getString("telefone_celular"),
-				rs.getString("cep"),
-				rs.getInt("cidade_cod"),
-				rs.getInt("bairro_cod"),
-				rs.getString("logradouro"),
-				rs.getInt("numero"),
-				rs.getString("complemento"),
-				rs.getString("UF") 
-			);
-			clientes.add(cli);
+	public List<Cliente> getTodosOsClientes() throws SQLException {
+		
+		List<Cliente> lc = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			Properties p = new Properties();
+			p.load(new FileInputStream("conexao.properties"));
+			String url = p.getProperty("url");
+			
+			con = DriverManager.getConnection(url, p);
+			
+			ps = con.prepareStatement(ClienteDAO.PESQUISAR_TUDO);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int codigo = rs.getInt("cod");
+				String nome = rs.getString("nome");
+				String cpf = rs.getString("cpf");
+				String rg = rs.getString("rg");
+				String sexo = rs.getString("sexo");
+				Date data_nascimento = rs.getDate("data_nascimento");
+			    Date data_cadastro = rs.getDate("data_cadastro");
+			    String telefone_fixo = rs.getString("telefone_fixo");
+			    String telefone_celular = rs.getString("telefone_celular");
+			    String  cep = rs.getString("cep");
+			    String logradouro = rs.getString("logradouro");
+			    int numero = rs.getInt("numero");
+			    String complemento = rs.getString("complemento");
+			    String UF = rs.getString("uf");
+				lc.add(
+					new Cliente (
+						codigo, nome, cpf, rg, sexo, data_nascimento, data_cadastro, telefone_fixo, 
+						telefone_celular, cep, logradouro, numero, complemento, UF)
+					);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		cc.desconectar();
-		return this.clientes;
+		return lc;
 	}
 
 	@Override
 	public Cliente getClientePorCodigo(int codigo) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Cliente c = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			Properties p = new Properties();
+			p.load(new FileInputStream("conexao.properties"));
+			String url = p.getProperty("url");
+			
+			con = DriverManager.getConnection(url, p);
+			
+			ps = con.prepareStatement(ClienteDAO.PESQUISA_POR_CODIGO);
+			ps.setInt(1,codigo);
+			
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int cod = rs.getInt("cod");
+				String nome = rs.getString("nome");
+				String cpf = rs.getString("cpf");
+				String rg = rs.getString("rg");
+				String sexo = rs.getString("sexo");
+				Date data_nascimento = rs.getDate("data_nascimento");
+			    Date data_cadastro = rs.getDate("data_cadastro");
+			    String telefone_fixo = rs.getString("telefone_fixo");
+			    String telefone_celular = rs.getString("telefone_celular");
+			    String  cep = rs.getString("cep");
+			    String logradouro = rs.getString("logradouro");
+			    int numero = rs.getInt("numero");
+			    String complemento = rs.getString("complemento");
+			    String UF = rs.getString("uf");
+				c = new Cliente (cod, nome, cpf, rg, sexo, data_nascimento, data_cadastro, 
+						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento, UF);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return c;
 	}
 
 	@Override
 	public Cliente getClientePorNome(String nome) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Cliente c = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			Properties p = new Properties();
+			p.load(new FileInputStream("conexao.properties"));
+			String url = p.getProperty("url");
+			
+			con = DriverManager.getConnection(url, p);
+			
+			ps = con.prepareStatement(ClienteDAO.PESQUISA_POR_CODIGO);
+			ps.setString(1,nome);
+			
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int codigo = rs.getInt("cod");
+				String n = rs.getString("nome");
+				String cpf = rs.getString("cpf");
+				String rg = rs.getString("rg");
+				String sexo = rs.getString("sexo");
+				Date data_nascimento = rs.getDate("data_nascimento");
+			    Date data_cadastro = rs.getDate("data_cadastro");
+			    String telefone_fixo = rs.getString("telefone_fixo");
+			    String telefone_celular = rs.getString("telefone_celular");
+			    String  cep = rs.getString("cep");
+			    String logradouro = rs.getString("logradouro");
+			    int numero = rs.getInt("numero");
+			    String complemento = rs.getString("complemento");
+			    String UF = rs.getString("uf");
+				c = new Cliente (codigo, n, cpf, rg, sexo, data_nascimento, data_cadastro, 
+						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento, UF);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return c;
 	}
 
 	@Override
-	public Cliente getClientePorNomeParecidoCom(String nome)
-			throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	/**
-	 * Recebe novamente a lista de clientes do DB.
-	 */
-	public void receber()
-	{
-		
-		
-	}
-	/**
-	 * Atualiza as informações no DB.
-	 */
-	public void enviar()
-	{
-		
+	public void inserirCliente(Cliente cliente) throws SQLException {
+		Connection db = null;
+		PreparedStatement st = null;
+
+		try {
+			Properties props = new Properties();
+			props.load(new FileInputStream("pindorama.properties"));
+			String url = props.getProperty("url");
+
+			db = DriverManager.getConnection(url, props);
+
+			st = db.prepareStatement(ClienteDAO.INSERIR);
+			st.setString(1, cliente.getNome());
+			st.setString(2, cliente.getCpf());
+			st.setString(3, cliente.getRg());
+			st.setString(4, cliente.getSexo());
+			st.setDate(5, cliente.getData_nascimento());
+			st.setDate(6, cliente.getData_cadastro());
+			st.setString(7, cliente.getTelefone_fixo());
+			st.setString(8, cliente.getTelefone_celular());
+			st.setString(9, cliente.getCep());
+			st.setString(10, cliente.getLogradouro());
+			st.setInt(11, cliente.getNumero());
+			st.setString(12, cliente.getComplemento());
+			st.setString(13, cliente.getUF());
+			
+			int r = st.executeUpdate();
+
+			if (r != 1) {
+				throw new RuntimeException("Erro ao inserir um novo cliente!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null) {
+					st.close();
+				}
+				if (db != null) {
+					db.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 }
