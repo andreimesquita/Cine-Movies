@@ -1,0 +1,31 @@
+Histórias
+
+XP
+
+HU1. Como funcionário, posso manter as informações dos clientes.
+
+	HU1C01 Cenário Cadastro
+	
+		Sistema:     Campos de texto em branco: Nome, sexo, cidade, bairro, logradouro, número, complemento e telefone fixo.
+		Funcionário: Preenche os campos com os dados do cliente.
+		Término do HU1C01
+		
+	HU1C02 Cenário Alteração
+	
+		Funcionário: Digite o código ou nome do cliente procurado.
+		Sistema:     Pesquisa e retorna uma lista com código e nome do cliente pesquisado.
+		Funcionário: Clica duas vezes em cima do cliente na lista.
+		Sistema:     Exibe o painel com as informações do cliente em seus campos determinados: Nome, sexo, cidade, bairro, logradouro, número, complemento e telefone fixo.
+		Funcionário: Modifica as informações nos campos e pressiona o botão 'atualizar'.
+		Sistema:     Atualiza as informações no db.
+		Fim do HU1C02
+		
+	HU1C03 Cenário Consulta
+	
+		Sistema:     Exibe lista com todos os clientes cadastrados.
+		Funcionário: Clica duas vezes em cima do cliente na lista.
+		Sistema:     Exibe o painel com as informações do cliente em seus campos determinados: Nome, sexo, cidade, bairro, logradouro, número, complemento e telefone fixo.
+		Fim do HU1C03
+
+HU2. Como funcionário, posso consultar os dados dos clientes cadastrados.
+HU3. Como funcionário, posso atualizar as informações de cadastro de cada cliente.

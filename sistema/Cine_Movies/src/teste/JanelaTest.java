@@ -53,7 +53,7 @@ public class JanelaTest extends JFrame {
 	/** */
 	private void initClientes() {
 		nomes = new ArrayList<>();
-		nomes.add("Andrei Schuch");
+		nomes.add("Ândrei Schuch");
 		nomes.add("Augusto Schuch");
 		nomes.add("Cristina Mesquita");
 		nomes.add("Vera Cabrera");
@@ -68,7 +68,11 @@ public class JanelaTest extends JFrame {
 		};
 		dtm.addColumn("Nome");
 		Object[] obj = nomes.toArray();
-		dtm.addRow(obj);
+		System.out.println(obj.length);
+		for (int x = 0; x < nomes.size(); x++) {
+			Object[] y = {nomes.get(x)};
+			dtm.addRow(y);
+		}
 		this.t.setModel(dtm);
 	}
 	
