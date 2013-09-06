@@ -1,0 +1,81 @@
+Agronomia
+Anchieta
+Arquipélago
+Auxiliadora
+Azenha
+Bela Vista
+Belém Novo
+Belém Velho
+Boa Vista
+Bom Jesus
+Bom Fim
+Camaquã
+Campo Novo
+Cascata
+Cavalhada
+Centro
+Chácara das Pedras
+Chapéu do Sol
+Cidade Baixa
+Coronel Aparício Borges
+Cristal
+Cristo Redentor
+Espírito Santo
+Farrapos
+Farroupilha
+Floresta
+Glória
+Guarujá
+Higienópolis
+Hípica
+Humaitá
+Independência
+Ipanema
+Jardim Botânico
+Jardim Carvalho
+Jardim Floresta
+Jardim Isabel
+Jardim Itu-Sabará
+Jardim Lindóia
+Jardim do Salso
+Jardim São Pedro
+Lageado	01/10/1992
+Lami	12/09/1991
+Lomba do Pinheiro
+Marcílio Dias
+Mário Quintana
+Medianeira
+Menino Deus
+Moinhos de Vento
+Mont'Serrat
+Navegantes
+Nonoai
+Partenon
+Passo D'Areia
+Pedra Redonda
+Petrópolis
+Ponta Grossa
+Praia de Belas
+Restinga
+Rio Branco
+Rubem Berta
+Santa Cecília
+Santa Maria Goretti
+Santa Tereza
+Santana
+Santo Antônio
+São Geraldo
+São João
+São José
+São Sebastião
+Sarandi
+Serraria
+Teresópolis
+Três Figueiras
+Tristeza
+Vila Assunção
+Vila Conceição
+Vila Ipiranga
+Vila Jardim
+Vila João Pessoa
+Vila Nova

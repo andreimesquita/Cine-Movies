@@ -198,7 +198,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
 		try {
 			Properties props = new Properties();
-			props.load(new FileInputStream("pindorama.properties"));
+			props.load(new FileInputStream("conexao.properties"));
 			String url = props.getProperty("url");
 
 			db = DriverManager.getConnection(url, props);
