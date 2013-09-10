@@ -1,28 +1,39 @@
 package pojo;
 
 import java.sql.Date;
-
+/** Representa um registro na tabela 'Cliente' no banco de dados. */
 public class Cliente {
-
+	/** Código do Cliente. */
 	private int codigo;
+	/** Nome do Cliente. */
 	private String nome;
+	/** CPF do Cliente. */
 	private String cpf;
+	/** RG do Cliente. */
 	private String rg;
+	/** Sexo do Cliente. */
 	private String sexo;
+	/** Data de nascimento do Cliente. */
 	private Date data_nascimento;
+	/** Data de cadastro do Cliente. */
 	private Date data_cadastro;
+	/** Telefone fixo do Cliente. */
 	private String telefone_fixo;
+	/** Telefone celular do Cliente. */
 	private String telefone_celular;
+	/** CEP do Cliente. */
 	private String cep;
+	/** Logradouro do Cliente. */
 	private String logradouro;
+	/** Número na Rua, Avenida, etc. */
 	private int numero;
+	/** Complemento do Logradouro. */
 	private String complemento;
-	private String UF;
-
+	/** Para a inicialização de um novo cliente vindo do banco de dados. */
 	public Cliente(int codigo, String nome, String cpf, String rg, String sexo,
 			Date data_nascimento, Date data_cadastro, String tel_fixo,
 			String telefone_celular, String cep, String logradouro, int numero,
-			String complemento, String UF) {
+			String complemento) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -36,9 +47,8 @@ public class Cliente {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-		this.UF = UF;
 	}
-
+	/** Para a criação de um novo cliente. */
 	public Cliente(String nome, String cpf, String rg, String sexo,
 			Date data_nascimento, Date data_cadastro, String tel_fixo,
 			String telefone_celular, String cep, String logradouro, int numero,
@@ -55,7 +65,6 @@ public class Cliente {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-		this.UF = UF;
 	}
 
 	/**
@@ -147,12 +156,5 @@ public class Cliente {
 	 */
 	public String getComplemento() {
 		return complemento;
-	}
-
-	/**
-	 * @return the uF
-	 */
-	public String getUF() {
-		return UF;
 	}
 }

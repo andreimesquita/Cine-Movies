@@ -11,11 +11,11 @@ public class Teste {
 	public static void main(String[] args) {
 		ClienteDAOImpl cd = new ClienteDAOImpl();
 		try {
-			Cliente c = cd.getClientePorCodigo(4);			
-			System.out.println("Cliente recuperado \'" + c.getNome() + "\'");
-			c = cd.getClientePorNome("Ândrei");
-			System.out.println("Cliente recuperado \'" + c.getNome() + "\'");
-			List<Cliente> rc = cd.getTodosOsClientes();
+			Cliente c = cd.getClientePorNome("\'Fabi%\'");
+			System.out.println("Cliente recuperado \'" + c.getNome() + "\' por nome");
+		} catch (SQLException e) 
+		{};
+/*			List<Cliente> rc = cd.getTodosOsClientes();
 			for (int x = 0; x < rc.size(); x++)
 			{
 				Cliente cli = rc.get(x);
@@ -36,14 +36,12 @@ public class Teste {
 				   "cep: " + cli.getCep() + "\n" +
 				   "logradouro: " + cli.getLogradouro() + "\n" +
 				   "número: " + cli.getNumero() + "\n" +
-				   "complemento: " + cli.getComplemento() + "\n" +
-				   "UF: " + cli.getUF() + "\n"
+				   "complemento: " + cli.getComplemento() + "\n"
 				);
 				System.out.println();
 			}
 		} catch (NullPointerException | SQLException e) {
 			System.out.println(e.getMessage());
-		}
+		}*/
 	}
-
 }

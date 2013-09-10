@@ -47,11 +47,11 @@ public class ClienteDAOImpl implements ClienteDAO {
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-			    String UF = rs.getString("uf");
+
 				lc.add(
 					new Cliente (
 						codigo, nome, cpf, rg, sexo, data_nascimento, data_cadastro, telefone_fixo, 
-						telefone_celular, cep, logradouro, numero, complemento, UF)
+						telefone_celular, cep, logradouro, numero, complemento)
 					);
 			}
 
@@ -108,9 +108,9 @@ public class ClienteDAOImpl implements ClienteDAO {
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-			    String UF = rs.getString("uf");
+
 				c = new Cliente (cod, nome, cpf, rg, sexo, data_nascimento, data_cadastro, 
-						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento, UF);
+						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento);
 			}
 
 		} catch (Exception e) {
@@ -147,7 +147,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 			
 			con = DriverManager.getConnection(url, p);
 			
-			ps = con.prepareStatement(ClienteDAO.PESQUISA_POR_CODIGO);
+			ps = con.prepareStatement(ClienteDAO.PESQUISA_POR_NOME);
 			ps.setString(1,nome);
 			
 			rs = ps.executeQuery();
@@ -166,9 +166,9 @@ public class ClienteDAOImpl implements ClienteDAO {
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-			    String UF = rs.getString("uf");
+
 				c = new Cliente (codigo, n, cpf, rg, sexo, data_nascimento, data_cadastro, 
-						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento, UF);
+						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento);
 			}
 
 		} catch (Exception e) {
@@ -216,7 +216,6 @@ public class ClienteDAOImpl implements ClienteDAO {
 			st.setString(10, cliente.getLogradouro());
 			st.setInt(11, cliente.getNumero());
 			st.setString(12, cliente.getComplemento());
-			st.setString(13, cliente.getUF());
 			
 			int r = st.executeUpdate();
 
