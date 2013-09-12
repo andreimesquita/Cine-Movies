@@ -6,7 +6,7 @@ import java.util.List;
 import pojo.Ator;
 
 public interface AtorDAO {
-	/**
+		/**
 		 * Comando SQL necessário para retornar todos os atores que estão na tabela <b>Ator</b>.
 		 *     <i>"SELECT * FROM ator"</i>
 		 */

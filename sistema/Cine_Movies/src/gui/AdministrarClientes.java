@@ -8,11 +8,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -33,6 +33,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.MaskFormatter;
 
+import com.mysql.jdbc.PingTarget;
 import com.toedter.calendar.JDateChooser;
 
 public class AdministrarClientes extends JPanel {
@@ -44,12 +45,11 @@ public class AdministrarClientes extends JPanel {
 	private JTextField tfCodigo;
 	private JTextField tfEmitente;
 	private JFormattedTextField tfDataNasc;
-	private JTextField tfTipo;
+	private JFormattedTextField tfTipo;
 	private JFormattedTextField tfCpf;
 	private JFormattedTextField tfRg;
 	private JTextField tfEndereco;
 	private JFormattedTextField tfNumero;
-	private JTextField tfUf;
 	private JFormattedTextField tfCep;
 	private JTextField tfEmail;
 	private JFormattedTextField tfTelResidencial;
@@ -59,9 +59,14 @@ public class AdministrarClientes extends JPanel {
 	private JTable table;
 	private JDateChooser dcNascimento;
 	private JFormattedTextField tfDataCadastro;
+	private MenuPrincipal mp;
+	private JFrame janela;
 	/** Construtor da classe para fins de teste. */
-	public AdministrarClientes(JFrame janela)
+	public AdministrarClientes(JFrame janela, MenuPrincipal mp)
 	{
+		this.mp = mp;
+		this.janela = janela;
+		
 		setPreferredSize(new Dimension(876, 572));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
@@ -84,24 +89,28 @@ public class AdministrarClientes extends JPanel {
 		lblCdigo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCdigo.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblCdigo.setBounds(12, 26, 131, 34);
+		lblCdigo.setLabelFor(tfCodigo);
 		painelAdministrar.add(lblCdigo);
 		
 		JLabel lblEmitente = new JLabel("Emitente:");
 		lblEmitente.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmitente.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblEmitente.setBounds(12, 72, 131, 34);
+		lblEmitente.setLabelFor(tfEmitente);
 		painelAdministrar.add(lblEmitente);
 		
 		JLabel lblTipocfa = new JLabel("Tipo (C/F/A):");
 		lblTipocfa.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTipocfa.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblTipocfa.setBounds(12, 118, 131, 34);
+		lblTipocfa.setLabelFor(tfTipo);
 		painelAdministrar.add(lblTipocfa);
 		
 		JLabel lblDataNasc = new JLabel("Dt Nasc.:");
 		lblDataNasc.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDataNasc.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblDataNasc.setBounds(195, 118, 83, 34);
+		lblDataNasc.setLabelFor(tfDataNasc);
 		painelAdministrar.add(lblDataNasc);
 		
 		JLabel lblDataCadastro = new JLabel("Dt Cad.:");
@@ -109,6 +118,7 @@ public class AdministrarClientes extends JPanel {
 		lblDataCadastro.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDataCadastro.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblDataCadastro.setBounds(456, 118, 71, 34);
+		lblDataCadastro.setLabelFor(tfDataCadastro);
 		painelAdministrar.add(lblDataCadastro);
 		
 		JLabel lblCpf = new JLabel("CPF:");
@@ -135,16 +145,10 @@ public class AdministrarClientes extends JPanel {
 		lblBairro.setBounds(12, 302, 131, 34);
 		painelAdministrar.add(lblBairro);
 		
-		JLabel lblUf = new JLabel("UF:");
-		lblUf.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUf.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblUf.setBounds(12, 348, 131, 34);
-		painelAdministrar.add(lblUf);
-		
 		JLabel lblCep = new JLabel("CEP:");
 		lblCep.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCep.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblCep.setBounds(263, 348, 71, 34);
+		lblCep.setBounds(72, 347, 71, 34);
 		painelAdministrar.add(lblCep);
 		
 		JLabel lblEmail = new JLabel("Email:");
@@ -170,14 +174,9 @@ public class AdministrarClientes extends JPanel {
 		painelBotoes.setBorder(new TitledBorder(new LineBorder(new Color(128, 124, 112), 1, true), "Configura\u00E7\u00F5es", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		painelBotoes.setBounds(693, 12, 162, 409);
 		painelAdministrar.add(painelBotoes);
-		painelBotoes.setLayout(new GridLayout(6, 1, 0, 3));
+		painelBotoes.setLayout(new GridLayout(7, 1, 0, 3));
 		
 		JButton btnInserir = new JButton("Inserir");
-		btnInserir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// Adiciona uma nova janela
-			}
-		});
 		btnInserir.setFocusable(false);
 		btnInserir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInserir.setFont(new Font("Dialog", Font.PLAIN, 16));
@@ -188,10 +187,6 @@ public class AdministrarClientes extends JPanel {
 		btnGravar.setEnabled(false);
 		btnGravar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGravar.setFont(new Font("Dialog", Font.PLAIN, 16));
-		btnGravar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		painelBotoes.add(btnGravar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -219,11 +214,11 @@ public class AdministrarClientes extends JPanel {
 		btnAutorizados.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnAutorizados);
 		
-		//JButton btnFechar = new JButton("Fechar");
-		//btnFechar.setFocusable(false);
-		//btnFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		//btnFechar.setFont(new Font("Dialog", Font.PLAIN, 16));
-		//painelBotoes.add(btnFechar);
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new VoltarAction());
+		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnVoltar.setFocusable(false);
+		painelBotoes.add(btnVoltar);
 		
 		JButton button_2 = new JButton();
 		button_2.setIcon(new ImageIcon("Imagens//dir.gif"));
@@ -275,7 +270,7 @@ public class AdministrarClientes extends JPanel {
 		painelAdministrar.add(tfDataNasc);
 		*/
 		
-		tfTipo = new JTextField();
+		tfTipo = new JFormattedTextField(mascara.getTipo());
 		tfTipo.setHorizontalAlignment(SwingConstants.LEFT);
 		tfTipo.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfTipo.setColumns(10);
@@ -352,22 +347,13 @@ public class AdministrarClientes extends JPanel {
 		cbBairro.setBounds(161, 302, 520, 34);
 		painelAdministrar.add(cbBairro);
 		
-		tfUf = new JTextField();
-		tfUf.setEditable(false);
-		tfUf.setText("RS");
-		tfUf.setHorizontalAlignment(SwingConstants.LEFT);
-		tfUf.setFont(new Font("Dialog", Font.PLAIN, 21));
-		tfUf.setColumns(10);
-		tfUf.setBounds(161, 348, 39, 34);
-		painelAdministrar.add(tfUf);
-		
 		tfCep = new JFormattedTextField(mascara.getCep());
 		tfCep.setFocusLostBehavior(JFormattedTextField.COMMIT);
 		tfCep.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tfCep.setHorizontalAlignment(SwingConstants.LEFT);
 		tfCep.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfCep.setColumns(10);
-		tfCep.setBounds(352, 348, 118, 34);
+		tfCep.setBounds(160, 346, 118, 34);
 		painelAdministrar.add(tfCep);
 		
 		tfEmail = new JTextField();
@@ -468,6 +454,8 @@ public class AdministrarClientes extends JPanel {
 	    private MaskFormatter data;
 	    private MaskFormatter cep;
 	    private MaskFormatter numero;
+	    private MaskFormatter tipo;
+	    //private MaskFormatter 
 	    /** Inicializa os campos */
 		protected Formatacoes()
 		{
@@ -482,6 +470,9 @@ public class AdministrarClientes extends JPanel {
 				data.setPlaceholderCharacter('_');
 				cep = new MaskFormatter("#####-###");
 				cep.setPlaceholderCharacter('_');
+				tipo = new MaskFormatter("U");
+				tipo.setPlaceholder(" ");
+				tipo.setValidCharacters("CFA");
 			} catch (ParseException e) {
 				JOptionPane.showMessageDialog(AdministrarClientes.this,"ERRO: Não foi possível "
 						+ "criar as máscaras dos campos da janela.");
@@ -522,6 +513,32 @@ public class AdministrarClientes extends JPanel {
 		 */
 		protected MaskFormatter getNumero() {
 			return numero;
+		}
+		/**
+		 * @return the tipo
+		 */
+		protected MaskFormatter getTipo() {
+			return tipo;
+		}
+		/**
+		 * @param tipo the tipo to set
+		 */
+		protected void setTipo(MaskFormatter tipo) {
+			this.tipo = tipo;
+		}
+	}
+	
+	private class VoltarAction extends AbstractAction {
+
+		public VoltarAction() {
+			super("Voltar");
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			AdministrarClientes.this.janela.setContentPane(AdministrarClientes.this.mp);
+			AdministrarClientes.this.janela.pack();
+			AdministrarClientes.this.janela.setLocationRelativeTo(null);
 		}
 	}
 }

@@ -14,8 +14,8 @@ public class Executar {
 			@Override
 			public void run() {
 				try {
-					UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
-//					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+					//UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 				} catch (Exception e) {JOptionPane.showMessageDialog(null, "Não foi possível encontrar o LAF Graphite.");};
 				new Janela();
 			}
