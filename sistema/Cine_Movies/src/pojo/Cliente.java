@@ -157,4 +157,14 @@ public class Cliente {
 	public String getComplemento() {
 		return complemento;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[codigo =" + codigo + ", nome =" + nome + " cpf=" + cpf + " rg=" + rg + " sexo=" + sexo + " cep=" + cep + " logradouro="
+		+ logradouro + " numero=" + numero + " complemento=" + complemento + " telefone_fixo=" + telefone_fixo + " telefone_celular=" 
+		+ telefone_celular
+		);
+		return sb.toString();
+	}
 }

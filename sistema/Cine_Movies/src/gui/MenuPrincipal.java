@@ -29,7 +29,7 @@ public class MenuPrincipal extends JPanel {
 		jtp_cp = new JTabbedPane();
 		jtp_cp.setFocusable(false);
 		jtp_cp.add(pc);
-		jtp_cp.setTitleAt(0,"CADASTRO");
+		jtp_cp.setTitleAt(0,"ADMINISTRAR");
 		add(jtp_cp);
 		setFocusable(false);
 	}

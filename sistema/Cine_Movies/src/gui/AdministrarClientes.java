@@ -8,12 +8,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.AbstractAction;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -26,14 +26,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.MaskFormatter;
 
-import com.mysql.jdbc.PingTarget;
 import com.toedter.calendar.JDateChooser;
 
 public class AdministrarClientes extends JPanel {
@@ -61,6 +59,14 @@ public class AdministrarClientes extends JPanel {
 	private JFormattedTextField tfDataCadastro;
 	private MenuPrincipal mp;
 	private JFrame janela;
+	private JButton btnInserir;
+	private JButton btnGravar;
+	private JButton btnCancelar;
+	private JButton btnAlterar;
+	private JButton btnExcluir;
+	private JButton btnAutorizados;
+	private JButton btnVoltar;
+	private JTextField tfComplemento;
 	/** Construtor da classe para fins de teste. */
 	public AdministrarClientes(JFrame janela, MenuPrincipal mp)
 	{
@@ -88,28 +94,28 @@ public class AdministrarClientes extends JPanel {
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
 		lblCdigo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCdigo.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblCdigo.setBounds(12, 26, 131, 34);
+		lblCdigo.setBounds(12, 12, 131, 34);
 		lblCdigo.setLabelFor(tfCodigo);
 		painelAdministrar.add(lblCdigo);
 		
 		JLabel lblEmitente = new JLabel("Emitente:");
 		lblEmitente.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmitente.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblEmitente.setBounds(12, 72, 131, 34);
+		lblEmitente.setBounds(12, 58, 131, 34);
 		lblEmitente.setLabelFor(tfEmitente);
 		painelAdministrar.add(lblEmitente);
 		
 		JLabel lblTipocfa = new JLabel("Tipo (C/F/A):");
 		lblTipocfa.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTipocfa.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblTipocfa.setBounds(12, 118, 131, 34);
+		lblTipocfa.setBounds(12, 151, 131, 34);
 		lblTipocfa.setLabelFor(tfTipo);
 		painelAdministrar.add(lblTipocfa);
 		
 		JLabel lblDataNasc = new JLabel("Dt Nasc.:");
 		lblDataNasc.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDataNasc.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblDataNasc.setBounds(195, 118, 83, 34);
+		lblDataNasc.setBounds(195, 151, 83, 34);
 		lblDataNasc.setLabelFor(tfDataNasc);
 		painelAdministrar.add(lblDataNasc);
 		
@@ -117,56 +123,56 @@ public class AdministrarClientes extends JPanel {
 		lblDataCadastro.setToolTipText("Data do cadastro.");
 		lblDataCadastro.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDataCadastro.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblDataCadastro.setBounds(456, 118, 71, 34);
+		lblDataCadastro.setBounds(456, 151, 71, 34);
 		lblDataCadastro.setLabelFor(tfDataCadastro);
 		painelAdministrar.add(lblDataCadastro);
 		
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCpf.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblCpf.setBounds(12, 164, 131, 34);
+		lblCpf.setBounds(12, 105, 131, 34);
 		painelAdministrar.add(lblCpf);
 		
 		JLabel lblEndereo = new JLabel("Endere\u00E7o:");
 		lblEndereo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEndereo.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblEndereo.setBounds(12, 210, 131, 34);
+		lblEndereo.setBounds(12, 339, 131, 34);
 		painelAdministrar.add(lblEndereo);
 		
 		JLabel lblCidade = new JLabel("Cidade:");
 		lblCidade.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCidade.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblCidade.setBounds(12, 256, 131, 34);
+		lblCidade.setBounds(12, 245, 131, 34);
 		painelAdministrar.add(lblCidade);
 		
 		JLabel lblBairro = new JLabel("Bairro:");
 		lblBairro.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblBairro.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblBairro.setBounds(12, 302, 131, 34);
+		lblBairro.setBounds(12, 291, 131, 34);
 		painelAdministrar.add(lblBairro);
 		
 		JLabel lblCep = new JLabel("CEP:");
 		lblCep.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCep.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblCep.setBounds(72, 347, 71, 34);
+		lblCep.setBounds(72, 198, 71, 34);
 		painelAdministrar.add(lblCep);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmail.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblEmail.setBounds(12, 394, 131, 34);
+		lblEmail.setBounds(12, 433, 131, 34);
 		painelAdministrar.add(lblEmail);
 		
 		JLabel lblTelResidencial = new JLabel("Tel. Residencial:");
 		lblTelResidencial.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTelResidencial.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblTelResidencial.setBounds(12, 440, 134, 34);
+		lblTelResidencial.setBounds(12, 479, 134, 34);
 		painelAdministrar.add(lblTelResidencial);
 		
 		JLabel lblTelCelular = new JLabel("Tel. Celular:");
 		lblTelCelular.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTelCelular.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblTelCelular.setBounds(369, 440, 101, 34);
+		lblTelCelular.setBounds(369, 479, 101, 34);
 		painelAdministrar.add(lblTelCelular);
 		
 		JPanel painelBotoes = new JPanel();
@@ -176,67 +182,116 @@ public class AdministrarClientes extends JPanel {
 		painelAdministrar.add(painelBotoes);
 		painelBotoes.setLayout(new GridLayout(7, 1, 0, 3));
 		
-		JButton btnInserir = new JButton("Inserir");
+		btnInserir = new JButton("Inserir");
+		btnInserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnInserir.setEnabled(false);				
+				btnAlterar.setEnabled(false);
+				btnVoltar.setEnabled(false);
+				btnCancelar.setEnabled(true);
+				btnExcluir.setEnabled(false);
+				btnGravar.setEnabled(true);
+				btnAutorizados.setEnabled(false);
+				
+				tfCodigo.setText("");
+				tfEmitente.setText("");
+				tfCep.setText("");
+				tfCpf.setText("");
+				tfDataCadastro.setText(getDataAtual());
+				dcNascimento.setDate(null);
+				tfEmail.setText("");
+				tfEndereco.setText("");
+				tfPesquisar.setText("");
+				tfNumero.setText("");
+				tfRg.setText("");
+				tfTelCelular.setText("");
+				tfTelResidencial.setText("");
+				tfTipo.setText("");
+			}
+		});
 		btnInserir.setFocusable(false);
 		btnInserir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInserir.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnInserir);
 		
-		JButton btnGravar = new JButton("Gravar");
+		btnGravar = new JButton("Gravar");
+		btnGravar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					String nome = tfEmitente.getText();
+					String cpf = tfCpf.getText();
+					String rg = tfRg.getText();
+					String cep = tfCep.getText();
+					String logradouro = tfEndereco.getText();
+					int numero = Integer.valueOf(tfNumero.getText());
+
+					// Tipo ainda não foi implementado no cliente.
+					
+					if (tfEmitente.getText().trim().equals("") ||
+						tfCpf.getText().trim().equals("") ||
+						tfRg.getText().trim().equals("") ||
+						tfCep.getText().trim().equals("") ||
+						tfEndereco.getText().trim().equals("") ||
+						tfNumero.getText().trim().equals("")) {
+						throw new InvalidValueException();
+					};
+					
+					String data_nascimento = tfDataNasc.getText();
+					String data_cadastro = tfDataCadastro.getText();
+					String tel_fixo = tfTelResidencial.getText();
+					String telefone_celular = tfTelCelular.getText();
+					String complemento;
+					
+					//Cliente cli = new Cliente(nome, cpf, rg, sexo, data_nascimento, data_cadastro, tel_fixo, telefone_celular, cep, logradouro, numero, complemento);
+				} catch (InvalidValueException ive) {
+					JOptionPane.showConfirmDialog(null, ive.getMessage(), "Dados Incorretos", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 		btnGravar.setFocusable(false);
 		btnGravar.setEnabled(false);
 		btnGravar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGravar.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnGravar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFocusable(false);
 		btnCancelar.setEnabled(false);
 		btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnCancelar);
 		
-		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar = new JButton("Alterar");
 		btnAlterar.setFocusable(false);
 		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnAlterar);
 		
-		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir = new JButton("Excluir");
 		btnExcluir.setFocusable(false);
 		btnExcluir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnExcluir.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnExcluir);
 		
-		JButton btnAutorizados = new JButton("Autorizados");
+		btnAutorizados = new JButton("Autorizados");
 		btnAutorizados.setFocusable(false);
 		btnAutorizados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAutorizados.setFont(new Font("Dialog", Font.PLAIN, 16));
 		painelBotoes.add(btnAutorizados);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new VoltarAction());
 		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 16));
 		btnVoltar.setFocusable(false);
 		painelBotoes.add(btnVoltar);
-		
-		JButton button_2 = new JButton();
-		button_2.setIcon(new ImageIcon("Imagens//dir.gif"));
-		button_2.setBackground(new Color(0,255,0,0));
-		button_2.setFocusable(false);
-		button_2.setContentAreaFilled(false);
-		button_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button_2.setBackground(UIManager.getColor("Button.background"));
-		button_2.setBounds(381, 26, 34, 34);
-		painelAdministrar.add(button_2);
 		
 		tfCodigo = new JTextField();
 		tfCodigo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		tfCodigo.setEditable(false);
 		tfCodigo.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfCodigo.setHorizontalAlignment(SwingConstants.RIGHT);
-		tfCodigo.setText("0001");
-		tfCodigo.setBounds(161, 26, 171, 34);
+		tfCodigo.setText("0");
+		tfCodigo.setBounds(161, 12, 171, 34);
 		painelAdministrar.add(tfCodigo);
 		tfCodigo.setColumns(10);
 		
@@ -244,7 +299,7 @@ public class AdministrarClientes extends JPanel {
 		tfEmitente.setHorizontalAlignment(SwingConstants.LEFT);
 		tfEmitente.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfEmitente.setColumns(10);
-		tfEmitente.setBounds(161, 71, 520, 34);
+		tfEmitente.setBounds(161, 57, 520, 34);
 		painelAdministrar.add(tfEmitente);
 		
 		dcNascimento = new JDateChooser();
@@ -257,7 +312,7 @@ public class AdministrarClientes extends JPanel {
 		dcNascimento.setMaxSelectableDate(new Date());
 		dcNascimento.setMinSelectableDate(c.getTime());
 		dcNascimento.setFont(new Font("Dialog", Font.PLAIN, 21));
-		dcNascimento.setBounds(284, 118, 154, 34);
+		dcNascimento.setBounds(284, 151, 154, 34);
 		painelAdministrar.add(dcNascimento);
 		/*
 		tfDataNasc = new JFormattedTextField(mascara.getData());
@@ -274,18 +329,8 @@ public class AdministrarClientes extends JPanel {
 		tfTipo.setHorizontalAlignment(SwingConstants.LEFT);
 		tfTipo.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfTipo.setColumns(10);
-		tfTipo.setBounds(161, 117, 30, 34);
+		tfTipo.setBounds(161, 150, 30, 34);
 		painelAdministrar.add(tfTipo);
-		
-		JButton button = new JButton();
-		button.setIcon(new ImageIcon("Imagens//esq.gif"));
-		button.setContentAreaFilled(false);
-		button.setFocusable(false);
-		button.setBackground(new Color(0,255,0,0));
-		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button.setBackground(UIManager.getColor("Button.background"));
-		button.setBounds(343, 26, 34, 34);
-		painelAdministrar.add(button);
 		
 		tfCpf = new JFormattedTextField(mascara.getCpf());
 		tfCpf.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -293,13 +338,13 @@ public class AdministrarClientes extends JPanel {
 		tfCpf.setHorizontalAlignment(SwingConstants.LEFT);
 		tfCpf.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfCpf.setColumns(10);
-		tfCpf.setBounds(161, 164, 162, 34);
+		tfCpf.setBounds(161, 105, 162, 34);
 		painelAdministrar.add(tfCpf);
 		
 		JLabel lblRg = new JLabel("RG:");
 		lblRg.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblRg.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblRg.setBounds(411, 164, 34, 34);
+		lblRg.setBounds(411, 105, 34, 34);
 		painelAdministrar.add(lblRg);
 		
 		tfRg = new JFormattedTextField(mascara.getRg());
@@ -308,20 +353,20 @@ public class AdministrarClientes extends JPanel {
 		tfRg.setHorizontalAlignment(SwingConstants.LEFT);
 		tfRg.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfRg.setColumns(10);
-		tfRg.setBounds(463, 164, 143, 34);
+		tfRg.setBounds(463, 105, 143, 34);
 		painelAdministrar.add(tfRg);
 		
 		tfEndereco = new JTextField();
 		tfEndereco.setHorizontalAlignment(SwingConstants.LEFT);
 		tfEndereco.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfEndereco.setColumns(10);
-		tfEndereco.setBounds(161, 210, 314, 34);
+		tfEndereco.setBounds(161, 339, 314, 34);
 		painelAdministrar.add(tfEndereco);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero:");
 		lblNmero.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNmero.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblNmero.setBounds(493, 210, 71, 34);
+		lblNmero.setBounds(493, 339, 71, 34);
 		painelAdministrar.add(lblNmero);
 		
 		tfNumero = new JFormattedTextField(mascara.getNumero());
@@ -329,14 +374,14 @@ public class AdministrarClientes extends JPanel {
 		tfNumero.setHorizontalAlignment(SwingConstants.LEFT);
 		tfNumero.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfNumero.setColumns(10);
-		tfNumero.setBounds(582, 209, 99, 34);
+		tfNumero.setBounds(582, 338, 99, 34);
 		painelAdministrar.add(tfNumero);
 		
 		JComboBox cbCidade = new JComboBox();
 		cbCidade.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cbCidade.setMaximumRowCount(99);
 		cbCidade.setFont(new Font("Dialog", Font.PLAIN, 21));
-		cbCidade.setBounds(161, 256, 520, 34);
+		cbCidade.setBounds(161, 245, 520, 34);
 		painelAdministrar.add(cbCidade);
 		
 		JComboBox cbBairro = new JComboBox();
@@ -344,7 +389,7 @@ public class AdministrarClientes extends JPanel {
 		cbBairro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cbBairro.setMaximumRowCount(99);
 		cbBairro.setFont(new Font("Dialog", Font.PLAIN, 21));
-		cbBairro.setBounds(161, 302, 520, 34);
+		cbBairro.setBounds(161, 291, 520, 34);
 		painelAdministrar.add(cbBairro);
 		
 		tfCep = new JFormattedTextField(mascara.getCep());
@@ -353,14 +398,14 @@ public class AdministrarClientes extends JPanel {
 		tfCep.setHorizontalAlignment(SwingConstants.LEFT);
 		tfCep.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfCep.setColumns(10);
-		tfCep.setBounds(160, 346, 118, 34);
+		tfCep.setBounds(160, 197, 118, 34);
 		painelAdministrar.add(tfCep);
 		
 		tfEmail = new JTextField();
 		tfEmail.setHorizontalAlignment(SwingConstants.LEFT);
 		tfEmail.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfEmail.setColumns(10);
-		tfEmail.setBounds(161, 394, 314, 34);
+		tfEmail.setBounds(161, 433, 314, 34);
 		painelAdministrar.add(tfEmail);
 		
 		tfTelResidencial = new JFormattedTextField(mascara.getTelefone());
@@ -369,7 +414,7 @@ public class AdministrarClientes extends JPanel {
 		tfTelResidencial.setHorizontalAlignment(SwingConstants.LEFT);
 		tfTelResidencial.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfTelResidencial.setColumns(10);
-		tfTelResidencial.setBounds(161, 440, 173, 34);
+		tfTelResidencial.setBounds(161, 479, 173, 34);
 		painelAdministrar.add(tfTelResidencial);
 		
 		tfTelCelular = new JFormattedTextField(mascara.getTelefone());
@@ -378,7 +423,7 @@ public class AdministrarClientes extends JPanel {
 		tfTelCelular.setHorizontalAlignment(SwingConstants.LEFT);
 		tfTelCelular.setFont(new Font("Dialog", Font.PLAIN, 21));
 		tfTelCelular.setColumns(10);
-		tfTelCelular.setBounds(488, 440, 173, 34);
+		tfTelCelular.setBounds(488, 479, 173, 34);
 		painelAdministrar.add(tfTelCelular);
 		
 		tfDataCadastro = new JFormattedTextField(mascara.getData());
@@ -389,8 +434,22 @@ public class AdministrarClientes extends JPanel {
 		tfDataCadastro.setFocusLostBehavior(JFormattedTextField.COMMIT);
 		tfDataCadastro.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tfDataCadastro.setColumns(10);
-		tfDataCadastro.setBounds(538, 118, 143, 34);
+		tfDataCadastro.setBounds(538, 151, 143, 34);
 		painelAdministrar.add(tfDataCadastro);
+		
+		tfComplemento = new JTextField();
+		tfComplemento.setHorizontalAlignment(SwingConstants.LEFT);
+		tfComplemento.setFont(new Font("Dialog", Font.PLAIN, 21));
+		tfComplemento.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		tfComplemento.setColumns(10);
+		tfComplemento.setBounds(160, 386, 521, 34);
+		painelAdministrar.add(tfComplemento);
+		
+		JLabel lblComplemento = new JLabel("Complemento:");
+		lblComplemento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblComplemento.setFont(new Font("Dialog", Font.PLAIN, 18));
+		lblComplemento.setBounds(22, 387, 121, 34);
+		painelAdministrar.add(lblComplemento);
 		
 		JPanel painelConsultar = new JPanel();
 		painelConsultar.setFocusable(false);
@@ -443,6 +502,23 @@ public class AdministrarClientes extends JPanel {
 		painelConsultar.add(tfPesquisar);
 	}
 	/**
+	 * Este método foi padronizado para que seja chamado em conjunto com o método setText() dos campos de texto <b>JFormattedField<b>.
+	 */
+	private String getDataAtual() {
+		StringBuilder sb = new StringBuilder();
+		Calendar calendar = Calendar.getInstance();
+		sb.append(calendar.get(Calendar.DAY_OF_MONTH));
+		int mes = calendar.get(Calendar.MONTH);
+		if (mes < 10) {
+			sb.append(0 + "" + mes);
+		} else {
+			sb.append(mes);
+		}
+		sb.append(calendar.get(Calendar.YEAR));
+		return sb.toString();
+	}
+	
+	/**
 	 * Classe responsável pelas máscaras dos campos na janela.
 	 * @author Ândrei
 	 */
@@ -464,7 +540,7 @@ public class AdministrarClientes extends JPanel {
 				cpf.setPlaceholderCharacter('_');
 				rg = new MaskFormatter("#########");
 				rg.setPlaceholderCharacter('_');
-				telefone = new MaskFormatter("(51)####-####");
+				telefone = new MaskFormatter("####-####");
 				telefone.setPlaceholderCharacter('_');
 				data = new MaskFormatter("##/##/####");
 				data.setPlaceholderCharacter('_');
