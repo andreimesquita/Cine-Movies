@@ -24,12 +24,12 @@ public interface ClienteDAO {
 	/**
 	 * Comando SQL necessário para inserir um novo cliente no db.
 	 *     <i>"INSERT INTO cliente(nome,cpf,rg,sexo,data_nascimento,data_cadastro,email,
-	 *     telefone_fixo,telefone_celular,cep,logradouro,numero) VALUES
-	 *     ('?','?','?','?','?','?','?','?','?','?','?','?','?','?')"</i>
+	 *     telefone_fixo,telefone_celular,cep,logradouro,numero,cidade,bairro) VALUES
+	 *     ('?','?','?','?','?','?','?','?','?','?','?',?,'?','?','?','?')"</i>
 	 */
-	String INSERIR = "INSERT INTO cliente(nome,cpf,rg,sexo,data_nascimento,data_cadastro,"
-		+ "email,telefone_fixo,telefone_celular,cep,logradouro,numero) "
-		+ "VALUES('?','?','?','?','?','?','?','?','?','?','?','?','?','?')";
+	String INSERIR = "INSERT INTO cliente (nome, cpf, rg,data_nascimento, data_cadastro, email, "
+	    + "telefone_fixo, telefone_celular, cep,logradouro, numero, complemento,cidade,bairro,tipo) VALUES ("
+	    + " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	/**
 	 * Retorna um objeto do tipo List contendo os clientes na tabela <b>cliente</b>, no db.
 	 * @return List dos clientes no db.

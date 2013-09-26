@@ -11,12 +11,11 @@ public class Cliente {
 	private String cpf;
 	/** RG do Cliente. */
 	private String rg;
-	/** Sexo do Cliente. */
-	private String sexo;
+	private String tipo;
 	/** Data de nascimento do Cliente. */
-	private Date data_nascimento;
+	private String data_nascimento;
 	/** Data de cadastro do Cliente. */
-	private Date data_cadastro;
+	private String data_cadastro;
 	/** Telefone fixo do Cliente. */
 	private String telefone_fixo;
 	/** Telefone celular do Cliente. */
@@ -29,42 +28,51 @@ public class Cliente {
 	private int numero;
 	/** Complemento do Logradouro. */
 	private String complemento;
+	private String cidade;
+	private String bairro;
+	private String email;
 	/** Para a inicialização de um novo cliente vindo do banco de dados. */
-	public Cliente(int codigo, String nome, String cpf, String rg, String sexo,
-			Date data_nascimento, Date data_cadastro, String tel_fixo,
+	public Cliente(int codigo, String nome, String cpf, String rg,
+			String data_nascimento, String data_cadastro, String tel_fixo,
 			String telefone_celular, String cep, String logradouro, int numero,
-			String complemento) {
+			String complemento,String cidade,String bairro,String tipo,String email) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
-		this.sexo = sexo;
 		this.data_nascimento = data_nascimento;
 		this.data_cadastro = data_cadastro;
 		this.telefone_fixo = tel_fixo;
 		this.telefone_celular = telefone_celular;
 		this.cep = cep;
+		this.email = email;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.tipo = tipo;
 	}
 	/** Para a criação de um novo cliente. */
-	public Cliente(String nome, String cpf, String rg, String sexo,
-			Date data_nascimento, Date data_cadastro, String tel_fixo,
-			String telefone_celular, String cep, String logradouro, int numero,
-			String complemento, String UF) {
+	public Cliente(String nome, String cpf, String rg,String data_nascimento,
+			String data_cadastro, String tel_fixo,String telefone_celular, 
+			String cep, String logradouro, int numero,
+			String complemento,String cidade,String bairro,String tipo,String email) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
-		this.sexo = sexo;
 		this.data_nascimento = data_nascimento;
 		this.data_cadastro = data_cadastro;
+		this.email = email;
 		this.telefone_fixo = tel_fixo;
 		this.telefone_celular = telefone_celular;
 		this.cep = cep;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.tipo = tipo;
 	}
 
 	/**
@@ -96,23 +104,16 @@ public class Cliente {
 	}
 
 	/**
-	 * @return the sexo
-	 */
-	public String getSexo() {
-		return sexo;
-	}
-
-	/**
 	 * @return the data_nascimento
 	 */
-	public Date getData_nascimento() {
+	public String getData_nascimento() {
 		return data_nascimento;
 	}
 
 	/**
 	 * @return the data_cadastro
 	 */
-	public Date getData_cadastro() {
+	public String getData_cadastro() {
 		return data_cadastro;
 	}
 
@@ -158,12 +159,60 @@ public class Cliente {
 		return complemento;
 	}
 	
+	/**
+	 * @return the cidade
+	 */
+	public String getCidade() {
+		return cidade;
+	}
+	/**
+	 * @param cidade the cidade to set
+	 */
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	/**
+	 * @return the bairro
+	 */
+	public String getBairro() {
+		return bairro;
+	}
+	/**
+	 * @param bairro the bairro to set
+	 */
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	/**
+	 * @return the tipo
+	 */
+	public String getTipo() {
+		return tipo;
+	}
+	/**
+	 * @param tipo the tipo to set
+	 */
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("[codigo =" + codigo + ", nome =" + nome + " cpf=" + cpf + " rg=" + rg + " sexo=" + sexo + " cep=" + cep + " logradouro="
+		sb.append("[codigo =" + codigo + ", nome =" + nome + " cpf=" + cpf + " rg=" + rg + " cep=" + cep + " logradouro="
 		+ logradouro + " numero=" + numero + " complemento=" + complemento + " telefone_fixo=" + telefone_fixo + " telefone_celular=" 
-		+ telefone_celular
+		+ telefone_celular + "]"
 		);
 		return sb.toString();
 	}

@@ -38,20 +38,23 @@ public class ClienteDAOImpl implements ClienteDAO {
 				String nome = rs.getString("nome");
 				String cpf = rs.getString("cpf");
 				String rg = rs.getString("rg");
-				String sexo = rs.getString("sexo");
-				Date data_nascimento = rs.getDate("data_nascimento");
-			    Date data_cadastro = rs.getDate("data_cadastro");
+				String data_nascimento = rs.getString("data_nascimento");
+			    String data_cadastro = rs.getString("data_cadastro");
+			    String email = rs.getString("email");
 			    String telefone_fixo = rs.getString("telefone_fixo");
 			    String telefone_celular = rs.getString("telefone_celular");
 			    String  cep = rs.getString("cep");
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-
+			    String cidade = rs.getString("cidade");
+			    String bairro = rs.getString("bairro");
+			    String tipo = rs.getString("tipo");
+			    
 				lc.add(
 					new Cliente (
-						codigo, nome, cpf, rg, sexo, data_nascimento, data_cadastro, telefone_fixo, 
-						telefone_celular, cep, logradouro, numero, complemento)
+						codigo, nome, cpf, rg, data_nascimento, data_cadastro, telefone_fixo, 
+						telefone_celular, cep, logradouro, numero, complemento,cidade,bairro,tipo,email)
 					);
 			}
 
@@ -99,18 +102,21 @@ public class ClienteDAOImpl implements ClienteDAO {
 				String nome = rs.getString("nome");
 				String cpf = rs.getString("cpf");
 				String rg = rs.getString("rg");
-				String sexo = rs.getString("sexo");
-				Date data_nascimento = rs.getDate("data_nascimento");
-			    Date data_cadastro = rs.getDate("data_cadastro");
-			    String telefone_fixo = rs.getString("telefone_fixo");
+				String data_nascimento = rs.getString("data_nascimento");
+			    String data_cadastro = rs.getString("data_cadastro");
+			    String email = rs.getString("email");
+			    String tel_fixo = rs.getString("telefone_fixo");
 			    String telefone_celular = rs.getString("telefone_celular");
 			    String  cep = rs.getString("cep");
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-
-				c = new Cliente (cod, nome, cpf, rg, sexo, data_nascimento, data_cadastro, 
-						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento);
+			    String cidade = rs.getString("cidade");
+			    String bairro = rs.getString("bairro");
+			    String tipo = rs.getString("tipo");
+			    
+				c = new Cliente (cod,nome,cpf,rg,data_nascimento,data_cadastro,tel_fixo,
+						telefone_celular,cep,logradouro,numero,complemento,cidade,bairro,tipo,email);
 			}
 
 		} catch (Exception e) {
@@ -153,22 +159,25 @@ public class ClienteDAOImpl implements ClienteDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				int codigo = rs.getInt("cod");
+				int cod = rs.getInt("cod");
 				String n = rs.getString("nome");
 				String cpf = rs.getString("cpf");
 				String rg = rs.getString("rg");
-				String sexo = rs.getString("sexo");
-				Date data_nascimento = rs.getDate("data_nascimento");
-			    Date data_cadastro = rs.getDate("data_cadastro");
-			    String telefone_fixo = rs.getString("telefone_fixo");
+				String data_nascimento = rs.getString("data_nascimento");
+			    String data_cadastro = rs.getString("data_cadastro");
+			    String tel_fixo = rs.getString("telefone_fixo");
 			    String telefone_celular = rs.getString("telefone_celular");
 			    String  cep = rs.getString("cep");
 			    String logradouro = rs.getString("logradouro");
 			    int numero = rs.getInt("numero");
 			    String complemento = rs.getString("complemento");
-
-				c = new Cliente (codigo, n, cpf, rg, sexo, data_nascimento, data_cadastro, 
-						telefone_fixo,telefone_celular, cep, logradouro, numero, complemento);
+			    String cidade = rs.getString("cidade");
+			    String bairro = rs.getString("bairro");
+			    String tipo = rs.getString("tipo");
+			    String email = rs.getString("email");
+			    
+				c = new Cliente (cod, n, cpf, rg, data_nascimento, data_cadastro, 
+						tel_fixo,telefone_celular, cep, logradouro, numero, complemento,cidade,bairro,tipo,email);
 			}
 
 		} catch (Exception e) {
@@ -192,7 +201,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 	}
 
 	@Override
-	public void inserirCliente(Cliente cliente) throws SQLException {
+	public void inserirCliente(Cliente cliente) {
 		Connection db = null;
 		PreparedStatement st = null;
 
@@ -207,15 +216,20 @@ public class ClienteDAOImpl implements ClienteDAO {
 			st.setString(1, cliente.getNome());
 			st.setString(2, cliente.getCpf());
 			st.setString(3, cliente.getRg());
-			st.setString(4, cliente.getSexo());
-			st.setDate(5, cliente.getData_nascimento());
-			st.setDate(6, cliente.getData_cadastro());
+			st.setString(4, cliente.getData_nascimento());
+			st.setString(5, cliente.getData_cadastro());
+			st.setString(6, cliente.getEmail());
 			st.setString(7, cliente.getTelefone_fixo());
 			st.setString(8, cliente.getTelefone_celular());
 			st.setString(9, cliente.getCep());
 			st.setString(10, cliente.getLogradouro());
 			st.setInt(11, cliente.getNumero());
 			st.setString(12, cliente.getComplemento());
+			st.setString(13, cliente.getCidade());
+			st.setString(14, cliente.getBairro());
+			st.setString(15, cliente.getTipo());
+			
+			System.out.println(st);
 			
 			int r = st.executeUpdate();
 
@@ -224,7 +238,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException("Erro de sql durante a tentativa de inserção de um novo cliente!");
 		} finally {
 			try {
 				if (st != null) {
