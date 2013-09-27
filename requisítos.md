@@ -1,45 +1,30 @@
 * [Requisítos Funcionais](#requis%C3%8Dtos-funcionais)
 * [Requisítos Não Funcionais](#requis%C3%8Dtos-n%C3%83o-funcionais)
-* [Requisítos de Segurança](#requis%C3%8Dtos-de-seguran%C3%87a)
 * [Regras de Negócio](#regras-de-neg%C3%93cio)
 
 ## REQUISÍTOS FUNCIONAIS
 
-    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem seus clientes.
-    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem as pessoas 
-    autorizadas por cada cliente.
-    O software deve permitir que o gerente visualize o relatório de filmes locados por cada cliente.
-    O software deve permitir que o gerente visualize e atualize o saldo de cada cliente.
-    O software deve permitir que os funcionários visualizem uma lista com os clientes cadastrados.
-    O software deve permitir que os funcionários e o gerente cadastrem, alterem, excluam e consultem os filmes.
-    O software deve permitir que os funcionários, e o gerente, cadastrem, alterem, excluam e consultem seus fornecedores.
-    O software deve guardar a data e hora em que os clientes, filmes e fornecedores forem cadastrados, alterados e excluídos.
-    O software deve permitir que o cliente alugue filmes.
-    O software deve permitir que o gerente faça backup do banco de dados.
-    O software deve permitir que o gerente visualize os arquivos de backup, do banco de dados, com a data e hora em que foram criados.
-    O software deve permitir que o gerente restaure o banco de dados a partir das cópias de backup.
-    O sistema deve permitir que o gerente visualize o relatório de lucros, vendas, filmes mais locados, menos locados, novos e antigos.
-    O sistema deve permitir que o gerente visualize o relatório de generos mais locados, e menos locados, de forma geral e por cada cliente.
-    O cliente, e pessoas autorizadas por ele, podem alugar filmes em DVD e Blu-ray.
-    O software deve permitir a impressão de relatórios.
-    O software deve guardar as informações de locações realizadas com a data.
+    O software deve permitir que o funcionário cadastre, altere, exclua e consulte os dados dos clientes.
+    O software deve permitir que o funcionário cadastre, altere, exclua e consulte os autorizados de cada cliente.
+	O software deve permitir que o funcionário visualize o relatório de filmes locados por cada cliente.
+	O sosftware deve permitir que o funcionário altere e consulte o saldo de cada cliente.
+	O software deve permitir que o funcionário cadastre, altere, exclua e consulte as mídias.
+    O software deve permitir que o funcionário cadastre, altere, exclua e consulte a classificação.
+	O software deve permitir que o funcionário cadastre, altere, exclua e consulte o preço por classificação.
+	O software deve permitir que o funcionário cadastre, altere, exclua e consulte o gênero.
+	O software deve permitir que o funcionário cadastre, altere, exclua e consulte a localização.
+	O software deve guardar a data e hora em que os clientes e mídias forem cadastrados e alterados.
+	O software deve permitir que o cliente alugue mídias.
+    O sistema deve permitir que o funcionário visualize o relatório de lucros.
+
+    O software deve permitir que o funcionário visualize e atualize o saldo de cada cliente.
+
 
 ##  REQUISÍTOS NÃO FUNCIONAIS
 
-    O sistema deve gerar relatórios gráficos e escritos.
-    Os relatórios devem ser gerados por um determinado período de dias, meses ou anos, escolhidos pelo gerente.
+    O software deve guardar as informações de locações realizadas, com a data e hora.
     O programa deve ser feito na linguagem de programação Java.
-    O base de dados utilizada deverá ser o H2DB, por ser mais leve e rápido. http://www.h2database.com/html/main.html
-    Os arquivos de backup criados devem ser salvos em uma pasta padrão do programa.
-    Não existe limitação em relação a quantos backups podem ser realizados.
-    Se não for possível realizar a conexão com o banco de dados, deve ser possível continuar o trabalho
-    em forma off-line criando arquivos (.xml).
-
-## REQUISÍTOS DE SEGURANÇA
-
-    O software deve contar com serviço de autenticação por meio de usuário e senha.
-    As senhas devem ser salvas usando de encriptação MD5.
-    
+    O base de dados utilizada deverá ser o MySQL.
 
 ##   REGRAS DE NEGÓCIO
 
@@ -52,4 +37,3 @@
     Os filmes com a classificação 'C' são os filmes que estão na locadora a mais de 2 anos, custam R$ DVD/Blu-ray R$ 2,00/R$ 3,50 e o tempo 
     máximo para locação é de 120 horas (5 dias).
     Os filmes que não forem entregues no prazo contam como uma nova locação.
-    A Locadora conta com um serviço de tele-entrega, das 13 as 16 horas.
