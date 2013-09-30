@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
-
-import org.omg.CORBA.CharSeqHolder;
 
 import pojo.Cliente;
 
@@ -269,17 +266,19 @@ public class AdministrarClientes extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				String nome = tfEmitente.getText();
-				System.out.println("nome:"+nome);
-				// Erro
-				String cpf = ftfCpf.getText();
-				
+				String cpf = ftfCpf.getText();				
 				cpf = cpf.replace('-',' ');
 				cpf = cpf.replace('.',' ');
 				cpf = cpf.trim();
 				String rg = ftfRg.getText();
-				System.out.println("rg:"+rg);
 				Date d = dateChooser.getDate();
-				String data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
+				String data_nascimento;
+				try {
+					data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
+				} catch (NullPointerException npe) { 
+					JOptionPane.showMessageDialog(AdministrarClientes.this.janela, "Você deve digitar a data de nascimento!");
+					return; 
+				}
 				String data_cadastro = getDataAtual();
 				String email = tfEmail.getText();
 				String tel_fixo = ftfTelResidencial.getText();
@@ -317,6 +316,7 @@ public class AdministrarClientes extends JPanel {
 		add(button_5);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				AdministrarClientes.this.mp.Voltar();
 			}
 		});
 		button_5.setFont(new Font("Dialog", Font.PLAIN, 16));
@@ -354,6 +354,24 @@ public class AdministrarClientes extends JPanel {
 		}
 		sb.append(calendar.get(Calendar.YEAR));
 		return sb.toString();
+	}
+	// Apaga os campos da janela
+	public void reset() {
+		tfLogradouro.setText("");
+		tfCidade.setText("");
+		tfBairro.setText("");
+		tfEmail.setText("");
+		ftfRg.setText("");
+		tfEmitente.setText("");
+		ftfCpf.setText("");
+		ftfTipo.setText("");
+		dateChooser.setCalendar(null);
+		ftfNumero.setText("");
+		ftfTelResidencial.setText("");
+		ftfCep.setText("");
+		ftfTelCelular.setText("");
+		ftfDataCadastro.setText(getDataAtual());
+		tfComplemento.setText("");
 	}
 	/**
 	 * Classe responsável pelas máscaras dos campos na janela.

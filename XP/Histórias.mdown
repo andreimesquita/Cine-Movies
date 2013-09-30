@@ -6,11 +6,8 @@ HU1. Um funcionário pode manter clientes.
 
 	HU1C01 Cenário Cadastro
 	
-		Sistema:     Exibe os campos de texto: nome, cpf, rg, data de cadastro, data de nascimento, cidade, logradouro, número, complemento, 
-		                 cidade, bairro,telefone fixo e telefone celular.
 		Funcionário: Preenche os campos.
-		Sistema:     Adiciona o cliente na base de dados; Apresenta o código do novo cliente.
-		Sistema:     Retorna ao menu inicial.
+		nome, cpf, rg, data de cadastro, data de nascimento, cidade, logradouro, número, complemento, cidade, bairro,telefone fixo e telefone celular
 		Término do HU1C01
 		
 	HU1C02 Cenário Alteração
@@ -35,4 +32,5 @@ HU1. Um funcionário pode manter clientes.
 	HU1C04 Cenário Remoção
 
 
-HU2. Um funcionário pode manter mídias.		
+HU2. Um funcionário pode manter mídias.
+UH3. Um funcionário pode manter a classificação.

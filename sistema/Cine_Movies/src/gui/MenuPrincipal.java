@@ -33,6 +33,13 @@ public class MenuPrincipal extends JPanel {
 		add(jtp_cp);
 		setFocusable(false);
 	}
+	
+	public void Voltar() {
+	    j.setContentPane(this);
+	    j.pack();
+	    j.setLocationRelativeTo(null);;
+	}
+	
 	/** Botões da aba cadastro. */
 	private class PainelCadastro extends JPanel
 	{
@@ -71,7 +78,11 @@ public class MenuPrincipal extends JPanel {
 	    	EventQueue.invokeLater(new Runnable() {
 				@Override
 				public void run() {
-					if (adm_c == null) adm_c = new AdministrarClientes(j,MenuPrincipal.this);
+					if (adm_c == null) { 
+						adm_c = new AdministrarClientes(j,MenuPrincipal.this);
+					} else {
+						adm_c.reset();
+					}
 						j.setContentPane(adm_c);
 						j.pack();
 						j.setLocationRelativeTo(null);

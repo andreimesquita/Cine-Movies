@@ -17,6 +17,11 @@ Envolvidos
 ----------
 	Funcionário
 	Cliente
+	
+	Descrição de Persona
+	--------------------
+	    -	O funcionário é aquela pessoa dedicada ao trabalho, chegando sempre no horário e buscando melhoras pessoais e para a empresa.
+		-	O cliente é aquela pessoa inteligente que optou por se cadastrar na Cine-Movies, usufruindo de todos os serviços propostos.
 
 Características
 ---------------

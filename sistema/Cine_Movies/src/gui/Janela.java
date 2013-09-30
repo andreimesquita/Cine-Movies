@@ -23,6 +23,7 @@ public class Janela extends JFrame implements WindowListener
 	 */
 	private static final long serialVersionUID = -4544521664266507982L;
 	private MenuPrincipal mp;
+	
 	private JMenuBar m_b;
 	private JMenu m_arquivo;
 	private JMenu m_ajuda;
