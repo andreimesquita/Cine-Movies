@@ -1,23 +1,23 @@
 package gui;
 
+import gui.action.CadastrarClienteAction;
+import gui.action.CancelarCadastroClienteAction;
+
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.text.MaskFormatter;
 
 import pojo.Cliente;
 
@@ -25,16 +25,12 @@ import com.toedter.calendar.JDateChooser;
 
 import dao.ClienteDAOImpl;
 
-public class AdministrarClientes extends JPanel {
+public class AdministrarClientePanel extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private MenuPrincipal mp;
-	private JFrame janela;
-	
-	private Formatacoes mascara;
 	private JTextField tfLogradouro;
 	private JTextField tfCidade;
 	private JTextField tfBairro;
@@ -51,19 +47,21 @@ public class AdministrarClientes extends JPanel {
 	private JFormattedTextField ftfDataCadastro;
 	private JTextField tfComplemento;
 	
+	private Formatacoes format;
+	
+	private JButton btnGravar;
+	
 	private ClienteDAOImpl bd_cliente;
 	/** Construtor da classe para fins de teste. */
-	public AdministrarClientes(JFrame janela, MenuPrincipal mp)
+	public AdministrarClientePanel()
 	{
-		this.mp = mp;
-		this.janela = janela;
-				
+		format = new Formatacoes();		
+		
 		setPreferredSize(new Dimension(875, 439));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
 		setLayout(null);
 		
-		mascara = new Formatacoes();
 		bd_cliente = new ClienteDAOImpl();
 		
 		JLabel label_1 = new JLabel("Emitente:");
@@ -154,14 +152,14 @@ public class AdministrarClientes extends JPanel {
 		dateChooser.setBounds(161, 109, 154, 34);
 		add(dateChooser);
 		
-		ftfTipo = new JFormattedTextField(mascara.tipo);
+		ftfTipo = new JFormattedTextField(format.getTipo());
 		ftfTipo.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfTipo.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfTipo.setColumns(10);
 		ftfTipo.setBounds(161, 61, 30, 34);
 		add(ftfTipo);
 		
-		ftfCpf = new JFormattedTextField(mascara.cpf);
+		ftfCpf = new JFormattedTextField(format.getCpf());
 		ftfCpf.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfCpf.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfCpf.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -176,7 +174,7 @@ public class AdministrarClientes extends JPanel {
 		label_13.setBounds(486, 61, 34, 34);
 		add(label_13);
 		
-		ftfRg = new JFormattedTextField(mascara.rg);
+		ftfRg = new JFormattedTextField(format.getRg());
 		ftfRg.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfRg.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfRg.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -198,7 +196,7 @@ public class AdministrarClientes extends JPanel {
 		label_14.setBounds(676, 250, 71, 34);
 		add(label_14);
 		
-		ftfNumero = new JFormattedTextField(mascara.numero);
+		ftfNumero = new JFormattedTextField();
 		ftfNumero.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfNumero.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfNumero.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -216,7 +214,7 @@ public class AdministrarClientes extends JPanel {
 		tfBairro.setBounds(161, 202, 520, 34);
 		add(tfBairro);
 		
-		ftfCep = new JFormattedTextField(mascara.cep);
+		ftfCep = new JFormattedTextField(format.getCep());
 		ftfCep.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfCep.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfCep.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -232,7 +230,7 @@ public class AdministrarClientes extends JPanel {
 		tfEmail.setBounds(161, 345, 520, 34);
 		add(tfEmail);
 		
-		ftfTelResidencial = new JFormattedTextField(mascara.telefone);
+		ftfTelResidencial = new JFormattedTextField(format.getTelefone2());
 		ftfTelResidencial.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfTelResidencial.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfTelResidencial.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -241,7 +239,7 @@ public class AdministrarClientes extends JPanel {
 		ftfTelResidencial.setBounds(161, 391, 173, 34);
 		add(ftfTelResidencial);
 		
-		ftfTelCelular = new JFormattedTextField(mascara.telefone);
+		ftfTelCelular = new JFormattedTextField(format.getTelefone());
 		ftfTelCelular.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfTelCelular.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfTelCelular.setFocusLostBehavior(JFormattedTextField.COMMIT);
@@ -250,7 +248,7 @@ public class AdministrarClientes extends JPanel {
 		ftfTelCelular.setBounds(508, 391, 173, 34);
 		add(ftfTelCelular);
 		
-		ftfDataCadastro = new JFormattedTextField(mascara.data);
+		ftfDataCadastro = new JFormattedTextField(format.getData());
 		ftfDataCadastro.setHorizontalAlignment(SwingConstants.LEFT);
 		ftfDataCadastro.setFont(new Font("Dialog", Font.PLAIN, 21));
 		ftfDataCadastro.setFocusable(false);
@@ -258,67 +256,27 @@ public class AdministrarClientes extends JPanel {
 		ftfDataCadastro.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		ftfDataCadastro.setColumns(10);
 		ftfDataCadastro.setBounds(467, 109, 143, 34);
-		ftfDataCadastro.setText(getDataAtual());
 		add(ftfDataCadastro);
-		
-		JButton button_1 = new JButton("Gravar");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				String nome = tfEmitente.getText();
-				String cpf = ftfCpf.getText();				
-				cpf = cpf.replace('-',' ');
-				cpf = cpf.replace('.',' ');
-				cpf = cpf.trim();
-				String rg = ftfRg.getText();
-				Date d = dateChooser.getDate();
-				String data_nascimento;
-				try {
-					data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
-				} catch (NullPointerException npe) { 
-					JOptionPane.showMessageDialog(AdministrarClientes.this.janela, "Você deve digitar a data de nascimento!");
-					return; 
-				}
-				String data_cadastro = getDataAtual();
-				String email = tfEmail.getText();
-				String tel_fixo = ftfTelResidencial.getText();
-				tel_fixo = tel_fixo.replaceAll("-","");
-				String telefone_celular = ftfTelCelular.getText();
-				telefone_celular = telefone_celular.replaceAll("-","");
-				String cep = ftfCep.getText();
-				cep = cep.replaceAll("-","");
-				String logradouro = tfLogradouro.getText();
-				int numero = Integer.parseInt(ftfNumero.getText());
-				String complemento = tfComplemento.getText();
-				String cidade = tfCidade.getText();
-				String bairro = tfBairro.getText();
-				String tipo = ftfTipo.getText();
-				
-				Cliente cli = new Cliente(
-						nome, cpf, rg,data_nascimento, data_cadastro,
-						tel_fixo, telefone_celular, cep, 
-						logradouro, numero, complemento,cidade,bairro,tipo,email);
-				
+		// Botão - Gravar
+		btnGravar = new JButton(new CadastrarClienteAction(this));
+		btnGravar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				Cliente cli = getCliente();
 				try {
 					bd_cliente.inserirCliente(cli);
-					JOptionPane.showMessageDialog(AdministrarClientes.this.janela,"Cliente adicionado na base de dados com sucesso!");
+					JOptionPane.showMessageDialog(null,"Cliente adicionado na base de dados com sucesso!");
 				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(AdministrarClientes.this.janela,e1.getMessage());
+					JOptionPane.showMessageDialog(null,e1.getMessage());
 				};
 			}
 		});
-		button_1.setBounds(712, 13, 152, 61);
-		add(button_1);
-		button_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		
-		JButton button_5 = new JButton("Voltar");
+		btnGravar.setBounds(712, 13, 152, 61);
+		add(btnGravar);
+		btnGravar.setFont(new Font("Dialog", Font.PLAIN, 16));
+		// Botão - Voltar
+		JButton button_5 = new JButton(new CancelarCadastroClienteAction(this));
 		button_5.setBounds(712, 80, 152, 61);
 		add(button_5);
-		button_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				AdministrarClientes.this.mp.Voltar();
-			}
-		});
 		button_5.setFont(new Font("Dialog", Font.PLAIN, 16));
 		button_5.setFocusable(false);
 		
@@ -338,14 +296,22 @@ public class AdministrarClientes extends JPanel {
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date());
 		c.add(Calendar.YEAR, -100);
+		
+		reset();
 	}
 	/**
-	 * Este método foi padronizado para que seja chamado em conjunto com o método setText() dos campos de texto <b>JFormattedField<b>.
+	 * Este método foi padronizado para que seja chamado em conjunto com o método setText() dos campos de texto 
+	 * <b>JFormattedField<b>.
 	 */
 	private String getDataAtual() {
 		StringBuilder sb = new StringBuilder();
 		Calendar calendar = Calendar.getInstance();
-		sb.append(calendar.get(Calendar.DAY_OF_MONTH));
+		if (calendar.get(Calendar.DAY_OF_MONTH) < 10) {
+			sb.append(0 + "" + calendar.get(Calendar.DAY_OF_MONTH));
+		} else {
+			sb.append(calendar.get(Calendar.DAY_OF_MONTH));
+		}
+		
 		int mes = calendar.get(Calendar.MONTH);
 		if (mes < 10) {
 			sb.append(0 + "" + mes);
@@ -373,41 +339,39 @@ public class AdministrarClientes extends JPanel {
 		ftfDataCadastro.setText(getDataAtual());
 		tfComplemento.setText("");
 	}
-	/**
-	 * Classe responsável pelas máscaras dos campos na janela.
-	 * @author Ândrei
-	 */
-	private class Formatacoes {
-		
-	    private MaskFormatter cpf;
-	    private MaskFormatter rg;
-	    private MaskFormatter telefone;
-	    private MaskFormatter data;
-	    private MaskFormatter cep;
-	    private MaskFormatter numero;
-	    private MaskFormatter tipo;
-	    //private MaskFormatter 
-	    /** Inicializa os campos */
-		protected Formatacoes()
-		{
-			try {
-				cpf = new MaskFormatter("###.###.###-##");
-				cpf.setPlaceholderCharacter('_');
-				rg = new MaskFormatter("#########");
-				rg.setPlaceholderCharacter('_');
-				telefone = new MaskFormatter("####-####");
-				telefone.setPlaceholderCharacter('_');
-				data = new MaskFormatter("##/##/####");
-				data.setPlaceholderCharacter('_');
-				cep = new MaskFormatter("#####-###");
-				cep.setPlaceholderCharacter('_');
-				tipo = new MaskFormatter("U");
-				tipo.setPlaceholder(" ");
-				tipo.setValidCharacters("CFA");
-			} catch (ParseException e) {
-				JOptionPane.showMessageDialog(AdministrarClientes.this,"ERRO: Não foi possível "
-						+ "criar as máscaras dos campos da janela.");
-			}
+	
+	public Cliente getCliente() {
+		String nome = tfEmitente.getText();
+		String cpf = ftfCpf.getText();				
+		cpf = cpf.replace('-',' ');
+		cpf = cpf.replace('.',' ');
+		cpf = cpf.trim();
+		String rg = ftfRg.getText();
+		Date d = dateChooser.getDate();
+		String data_nascimento;
+		try {
+			data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
+		} catch (NullPointerException npe) { 
+			JOptionPane.showMessageDialog(null, "Você deve digitar a data de nascimento!");
+			data_nascimento = "00000000";
 		}
+		String data_cadastro = getDataAtual();
+		String email = tfEmail.getText();
+		String tel_fixo = ftfTelResidencial.getText();
+		tel_fixo = tel_fixo.replaceAll("-","");
+		String telefone_celular = ftfTelCelular.getText();
+		telefone_celular = telefone_celular.replaceAll("-","");
+		String cep = ftfCep.getText();
+		cep = cep.replaceAll("-","");
+		String logradouro = tfLogradouro.getText();
+		int numero = Integer.parseInt(ftfNumero.getText());
+		String complemento = tfComplemento.getText();
+		String cidade = tfCidade.getText();
+		String bairro = tfBairro.getText();
+		String tipo = ftfTipo.getText();
+		
+		
+		return new Cliente(nome, cpf, rg,data_nascimento, data_cadastro,tel_fixo, telefone_celular, cep, 
+    		logradouro, numero, complemento,cidade,bairro,tipo,email);
 	}
 }

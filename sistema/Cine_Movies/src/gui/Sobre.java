@@ -1,11 +1,11 @@
 package gui;
 
+import gui.action.OKAction;
+
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
 
 public class Sobre extends JDialog {
 	
@@ -74,24 +73,7 @@ public class Sobre extends JDialog {
 		getContentPane().add(painelTexto);
 		
 		btnOK = new JButton("OK");
-		btnOK.addActionListener(new OKAction());
+		btnOK.addActionListener(new OKAction(this));
 		getContentPane().add(btnOK);
-	}
-	
-	private class OKAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		public OKAction() {
-			super("OK");
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-			System.out.println("XX");
-		}
 	}
 }
