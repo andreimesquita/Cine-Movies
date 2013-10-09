@@ -2,9 +2,12 @@ package gui.action;
 
 import gui.AdministrarClientePanel;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import pojo.Cliente;
 import dao.ClienteDAOImpl;
@@ -26,8 +29,18 @@ public class CadastrarClienteAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Cliente cli = panel.getCliente();
-		ClienteDAOImpl dao = new ClienteDAOImpl();
-		dao.inserirCliente(cli);
+    	try {
+			Cliente cli = panel.getCliente();
+			ClienteDAOImpl dao = new ClienteDAOImpl();
+			dao.inserirCliente(cli);
+			JOptionPane.showConfirmDialog(panel, "", "", JOptionPane.INFORMATION_MESSAGE, JOptionPane.OK_OPTION);
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(panel.getFrame(), "Erro #128");
+		} finally {
+			panel.reset();
+			CardLayout card = panel.getCard();
+			JFrame frame = panel.getFrame();
+			card.show(frame.getContentPane(), "Vazio");
+		}
 	}
 }

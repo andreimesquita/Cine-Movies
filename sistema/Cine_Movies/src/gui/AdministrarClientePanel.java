@@ -1,8 +1,10 @@
 package gui;
 
+import gui.action.CadastrarAction;
 import gui.action.CadastrarClienteAction;
-import gui.action.CancelarCadastroClienteAction;
+import gui.action.CadastroClienteCancelarAction;
 
+import java.awt.CardLayout;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,6 +15,7 @@ import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -26,9 +29,6 @@ import com.toedter.calendar.JDateChooser;
 import dao.ClienteDAOImpl;
 
 public class AdministrarClientePanel extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JTextField tfLogradouro;
@@ -46,23 +46,33 @@ public class AdministrarClientePanel extends JPanel {
 	private JFormattedTextField ftfTelCelular;
 	private JFormattedTextField ftfDataCadastro;
 	private JTextField tfComplemento;
-	
 	private Formatacoes format;
-	
+	private JButton btnCancelar;	
 	private JButton btnGravar;
 	
-	private ClienteDAOImpl bd_cliente;
+	private JFrame frame;
+	private CardLayout card;
+	
+	public CardLayout getCard() {
+		return card;
+	}
+	
+	public JFrame getFrame() {
+		return this.frame;
+	}
+	
 	/** Construtor da classe para fins de teste. */
-	public AdministrarClientePanel()
+	public AdministrarClientePanel(JFrame frame, CardLayout card)
 	{
-		format = new Formatacoes();		
+		this.frame = frame;
+		this.card = card;
+		
+		format = new Formatacoes();
 		
 		setPreferredSize(new Dimension(875, 439));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
 		setFont(new Font("Dialog", Font.PLAIN, 20));
 		setLayout(null);
-		
-		bd_cliente = new ClienteDAOImpl();
 		
 		JLabel label_1 = new JLabel("Emitente:");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -258,27 +268,17 @@ public class AdministrarClientePanel extends JPanel {
 		ftfDataCadastro.setBounds(467, 109, 143, 34);
 		add(ftfDataCadastro);
 		// Botão - Gravar
-		btnGravar = new JButton(new CadastrarClienteAction(this));
-		btnGravar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
-				Cliente cli = getCliente();
-				try {
-					bd_cliente.inserirCliente(cli);
-					JOptionPane.showMessageDialog(null,"Cliente adicionado na base de dados com sucesso!");
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(null,e1.getMessage());
-				};
-			}
-		});
+		btnGravar = new JButton(new CadastrarAction(this.frame, this.card));
+		btnGravar.addActionListener(new CadastrarClienteAction(this));
 		btnGravar.setBounds(712, 13, 152, 61);
 		add(btnGravar);
 		btnGravar.setFont(new Font("Dialog", Font.PLAIN, 16));
 		// Botão - Voltar
-		JButton button_5 = new JButton(new CancelarCadastroClienteAction(this));
-		button_5.setBounds(712, 80, 152, 61);
-		add(button_5);
-		button_5.setFont(new Font("Dialog", Font.PLAIN, 16));
-		button_5.setFocusable(false);
+		btnCancelar = new JButton(new CadastroClienteCancelarAction(this));
+		btnCancelar.setBounds(712, 80, 152, 61);
+		add(btnCancelar);
+		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnCancelar.setFocusable(false);
 		
 		JLabel lblComplemento = new JLabel("Complemento:");
 		lblComplemento.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -338,6 +338,7 @@ public class AdministrarClientePanel extends JPanel {
 		ftfTelCelular.setText("");
 		ftfDataCadastro.setText(getDataAtual());
 		tfComplemento.setText("");
+		tfEmitente.requestFocus();
 	}
 	
 	public Cliente getCliente() {
