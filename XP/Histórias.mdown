@@ -12,25 +12,23 @@ HU1. Um funcionário pode manter clientes.
 		
 	HU1C02 Cenário Alteração
 	
-		Sistema:     
 		Funcionário: Digita o código ou nome do cliente.
-		Sistema:     Retorna uma lista de clientes com o mesmo código ou nome.
-		Sistema:     Exibe o painel com as informações do cliente em seus campos determinados: Nome, sexo, cidade, bairro, logradouro, número, complemento e telefone fixo.
+		  É exibido o painel com as informações do cliente em seus campos determinados: 
+		      Nome, sexo, cidade, bairro, logradouro, número, complemento e telefone fixo.
 		Funcionário: Modifica as informações nos campos e pressiona o botão 'atualizar'.
-		Sistema:     Atualiza as informações no db.
 		Fim do HU1C02
 		
 	HU1C03 Cenário Consulta
 	
-		Sistema:     Exibe um campo de pesquisa.
-		Funcionário: Digita o nome ou código do cliente procurado.
-		Sistema:     Exibe o formulário com os dados do cliente em seus campos determinados: código, nome, cpf, rg, data de cadastro, data de nascimento, 
+		Funcionário: Digita o nome ou código do cliente procurado, no campo de pesquisa.
+		  É exibido o formulário com os dados do cliente em seus campos determinados: código, nome, cpf, rg, data de cadastro, data de nascimento, 
 		                 cidade, logradouro, número, complemento, cidade, bairro,telefone fixo e telefone celular.
-		Funcionário: 
+		Funcionário: ...
 		Fim do HU1C03
 
 	HU1C04 Cenário Remoção
 
+        ...
 
 HU2. Um funcionário pode manter mídias.
 UH3. Um funcionário pode manter a classificação.
