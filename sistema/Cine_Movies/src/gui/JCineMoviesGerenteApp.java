@@ -1,6 +1,7 @@
 package gui;
 
-import gui.action.CadastrarAction;
+import gui.action.PanelCadastrarAction;
+import gui.action.PesquisaCliAction;
 import gui.action.SairAction;
 import gui.action.SobreAction;
 
@@ -26,23 +27,18 @@ public class JCineMoviesGerenteApp {
 
 		private Janela frame;
 		private AdministrarClientePanel acp;
-		private CadastrarAction cadastrarAction;
-		// private final Action action_1 = new SwingAction_1();
+		private PanelCadastrarAction cadastrarAction;
+		private JPesquisaCliente pesquisaCliente;
 		private CardLayout card;
-
-		/**
-		 * Create the application.
-		 */
+		private JPanel vazio;
+		
 		public JCineMoviesGerenteApp() {
 			initialize();
 		}
 
-		/**
-		 * Initialize the contents of the frame.
-		 */
 		private void initialize() {
 			frame = new Janela();
-			frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Imagens/cinemovies.jpg"));
+			frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Imagens/icone.jpg"));
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 			card = new CardLayout(0, 0);
@@ -50,27 +46,39 @@ public class JCineMoviesGerenteApp {
 			frame.getContentPane().setLayout(card);
 			
 			acp = new AdministrarClientePanel(frame, card);
+			pesquisaCliente = new JPesquisaCliente(frame, card);
 			
-									
 			ImageIcon img_icone = new ImageIcon("Imagens\\icone.gif");
 			frame.setIconImage(img_icone.getImage());
+			
 			JMenuBar m_b = new JMenuBar();
+			
 			JMenu m_arquivo = new JMenu("Arquivo");
 			m_arquivo.setFont(new Font("SansSerif",Font.PLAIN,15));
 			m_arquivo.setMnemonic(KeyEvent.VK_F1);
-			cadastrarAction = new CadastrarAction(frame,card);
+			cadastrarAction = new PanelCadastrarAction(frame,card);
+			
 			JMenuItem cadastrarCliente = new JMenuItem(cadastrarAction);
 			m_arquivo.add(cadastrarCliente);
-			JMenuItem oVazio = new JMenuItem(new MyAction(frame,card));
+			
+			JMenuItem pesquisaCli = new JMenuItem("Pesquisar Cliente");
+			pesquisaCli.addActionListener(new PesquisaCliAction(frame,card));
+			m_arquivo.add(pesquisaCli);
+			
+			JMenuItem oVazio = new JMenuItem("");
+			oVazio.addActionListener(new MyAction(frame,card));
 			m_arquivo.add(oVazio);
+			
 			JMenu m_ajuda = new JMenu("Ajuda");
 			m_ajuda.setFont(m_arquivo.getFont());
 			m_ajuda.setMnemonic(KeyEvent.VK_F2);
+
 			JMenuItem mi_fechar = new JMenuItem("Fechar");
 			mi_fechar.setMnemonic(KeyEvent.VK_F);
 			mi_fechar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 			mi_fechar.setFont(m_arquivo.getFont());
 			mi_fechar.addActionListener(new SairAction());
+
 			JMenuItem mi_sobre = new JMenuItem("Sobre");
 			mi_sobre.setFont(m_arquivo.getFont());
 			mi_sobre.addActionListener(new SobreAction(frame));
@@ -79,14 +87,17 @@ public class JCineMoviesGerenteApp {
 			m_b.add(m_arquivo);
 			m_b.add(m_ajuda);
 			
-			JPanel painel = new JPanel();
-			Label lbl = new Label("oVazio");
-			painel.add(lbl);
+			vazio = new JPanel();
+			Label lbl = new Label("Vazio");
+			vazio.add(lbl);
 			
-			frame.getContentPane().add(painel,"oVazio");
+			frame.getContentPane().add(pesquisaCliente,"pesquisaCli");
+			frame.getContentPane().add(vazio,"Vazio");
 			frame.getContentPane().add(acp, "TelaCadastroCliente");
 			
 			frame.setJMenuBar(m_b);
+			
+			card.show(frame.getContentPane(), "Vazio");
 			
 			frame.pack();
 			frame.setLocationRelativeTo(null);
@@ -100,12 +111,9 @@ public class JCineMoviesGerenteApp {
 			public MyAction(JFrame frame, CardLayout card) {
 				this.frame = frame;
 				this.card = card;
-				
-				putValue(NAME, "Painel");
-				putValue(SHORT_DESCRIPTION, "Some short description");
 			}
 			public void actionPerformed(ActionEvent e) {
-				this.card.show(this.frame.getContentPane(), "oVazio" );
+				this.card.show(this.frame.getContentPane(), "Vazio" );
 				this.frame.pack();
 				this.frame.setLocationRelativeTo(null);
 			}

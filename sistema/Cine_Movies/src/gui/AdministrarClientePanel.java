@@ -1,6 +1,6 @@
 package gui;
 
-import gui.action.CadastrarAction;
+import gui.action.PanelCadastrarAction;
 import gui.action.CadastrarClienteAction;
 import gui.action.CadastroClienteCancelarAction;
 
@@ -268,7 +268,7 @@ public class AdministrarClientePanel extends JPanel {
 		ftfDataCadastro.setBounds(467, 109, 143, 34);
 		add(ftfDataCadastro);
 		// Botão - Gravar
-		btnGravar = new JButton(new CadastrarAction(this.frame, this.card));
+		btnGravar = new JButton(new PanelCadastrarAction(this.frame, this.card));
 		btnGravar.addActionListener(new CadastrarClienteAction(this));
 		btnGravar.setBounds(712, 13, 152, 61);
 		add(btnGravar);
