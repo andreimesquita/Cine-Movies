@@ -27,7 +27,6 @@ public class CadastroClienteCancelarAction extends AbstractAction {
 		CardLayout card = panel.getCard();
 		JFrame frame = panel.getFrame();
 		card.show(frame.getContentPane(), "Vazio");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
+
 	}
 }

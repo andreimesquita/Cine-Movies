@@ -5,10 +5,11 @@ import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 import MyTableModel.MyTableModel;
-import javax.swing.ListSelectionModel;
 
 public class JPesquisaCliente extends JPanel {
 
@@ -24,8 +25,10 @@ public class JPesquisaCliente extends JPanel {
 		
 		table = new JTable(new MyTableModel());
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		add(BorderLayout.CENTER, table);
+		
+		JScrollPane scroll = new JScrollPane(table);
+		//table.getTableHeader();
+		add(BorderLayout.CENTER, scroll);
 		table.setFillsViewportHeight(true);
 	}
-
 }

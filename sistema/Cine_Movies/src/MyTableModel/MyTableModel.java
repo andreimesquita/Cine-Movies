@@ -45,13 +45,12 @@ public class MyTableModel extends AbstractTableModel {
 		return lista.size();
 	}
 	
+	public String getColumnName(int num){
+        return this.colunas[num];
+    } 
+	
 	public Object[] getColunas() {
 		return colunas;
-	}
-	
-	@Override
-	public String getColumnName(int column) {
-		return colunas[column];
 	}
 	
 	@Override

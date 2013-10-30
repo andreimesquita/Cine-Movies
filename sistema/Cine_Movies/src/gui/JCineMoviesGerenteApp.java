@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
@@ -38,7 +39,8 @@ public class JCineMoviesGerenteApp {
 
 		private void initialize() {
 			frame = new Janela();
-			frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Imagens/icone.jpg"));
+			ImageIcon icone = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Imagens\\cinemovies.jpg"));
+			frame.setIconImage(icone.getImage());
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 			card = new CardLayout(0, 0);
@@ -48,8 +50,8 @@ public class JCineMoviesGerenteApp {
 			acp = new AdministrarClientePanel(frame, card);
 			pesquisaCliente = new JPesquisaCliente(frame, card);
 			
-			ImageIcon img_icone = new ImageIcon("Imagens\\icone.gif");
-			frame.setIconImage(img_icone.getImage());
+			// ImageIcon img_icone = new ImageIcon("Imagens\\icone.gif");
+			// frame.setIconImage(img_icone.getImage());
 			
 			JMenuBar m_b = new JMenuBar();
 			
@@ -65,7 +67,7 @@ public class JCineMoviesGerenteApp {
 			pesquisaCli.addActionListener(new PesquisaCliAction(frame,card));
 			m_arquivo.add(pesquisaCli);
 			
-			JMenuItem oVazio = new JMenuItem("");
+			JMenuItem oVazio = new JMenuItem("none");
 			oVazio.addActionListener(new MyAction(frame,card));
 			m_arquivo.add(oVazio);
 			
@@ -103,7 +105,11 @@ public class JCineMoviesGerenteApp {
 			frame.setLocationRelativeTo(null);
 			frame.setVisible(true);
 		}
-
+		/**
+		 * @deprecated
+		 * @author Ândrei
+		 *
+		 */
 		private class MyAction extends AbstractAction {
 			private JFrame frame;
 			private CardLayout card;

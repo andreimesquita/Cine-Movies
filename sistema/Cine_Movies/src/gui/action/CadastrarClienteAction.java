@@ -35,12 +35,13 @@ public class CadastrarClienteAction extends AbstractAction {
 			dao.inserirCliente(cli);
 			JOptionPane.showConfirmDialog(panel, "Cliente cadastrado com sucesso!", "Cadastrar", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
 		} catch(Exception e) {
-			JOptionPane.showMessageDialog(panel.getFrame(), "Erro #128");
+			JOptionPane.showMessageDialog(panel.getFrame(), "O cliente não foi cadastrado com sucesso.");
 		} finally {
 			panel.reset();
 			CardLayout card = panel.getCard();
 			JFrame frame = panel.getFrame();
 			card.show(frame.getContentPane(), "Vazio");
+
 		}
 	}
 }

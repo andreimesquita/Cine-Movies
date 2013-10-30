@@ -342,37 +342,37 @@ public class AdministrarClientePanel extends JPanel {
 	}
 	
 	public Cliente getCliente() {
-		String nome = tfEmitente.getText();
-		String cpf = ftfCpf.getText();				
-		cpf = cpf.replace('-',' ');
-		cpf = cpf.replace('.',' ');
-		cpf = cpf.trim();
-		String rg = ftfRg.getText();
-		Date d = dateChooser.getDate();
-		String data_nascimento;
 		try {
+			String data_nascimento;
+			Date d = dateChooser.getDate();
 			data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
-		} catch (NullPointerException npe) { 
-			JOptionPane.showMessageDialog(null, "Você deve digitar a data de nascimento!");
-			data_nascimento = "00000000";
+			String nome = tfEmitente.getText();
+			String cpf = ftfCpf.getText();				
+			cpf = cpf.replace('-',' ');
+			cpf = cpf.replace('.',' ');
+			cpf = cpf.trim();
+			String rg = ftfRg.getText();
+			String data_cadastro = getDataAtual();
+			String email = tfEmail.getText();
+			String tel_fixo = ftfTelResidencial.getText();
+			tel_fixo = tel_fixo.replaceAll("-","");
+			String telefone_celular = ftfTelCelular.getText();
+			telefone_celular = telefone_celular.replaceAll("-","");
+			String cep = ftfCep.getText();
+			cep = cep.replaceAll("-","");
+			String logradouro = tfLogradouro.getText();
+			int numero = Integer.parseInt(ftfNumero.getText());
+			String complemento = tfComplemento.getText();
+			String cidade = tfCidade.getText();
+			String bairro = tfBairro.getText();
+			String tipo = ftfTipo.getText();
+			
+			
+			return new Cliente(nome, cpf, rg,data_nascimento, data_cadastro,tel_fixo, telefone_celular, cep, 
+	    		logradouro, numero, complemento,cidade,bairro,tipo,email);
+		} catch (NullPointerException npe) {
+			return null;
 		}
-		String data_cadastro = getDataAtual();
-		String email = tfEmail.getText();
-		String tel_fixo = ftfTelResidencial.getText();
-		tel_fixo = tel_fixo.replaceAll("-","");
-		String telefone_celular = ftfTelCelular.getText();
-		telefone_celular = telefone_celular.replaceAll("-","");
-		String cep = ftfCep.getText();
-		cep = cep.replaceAll("-","");
-		String logradouro = tfLogradouro.getText();
-		int numero = Integer.parseInt(ftfNumero.getText());
-		String complemento = tfComplemento.getText();
-		String cidade = tfCidade.getText();
-		String bairro = tfBairro.getText();
-		String tipo = ftfTipo.getText();
-		
-		
-		return new Cliente(nome, cpf, rg,data_nascimento, data_cadastro,tel_fixo, telefone_celular, cep, 
-    		logradouro, numero, complemento,cidade,bairro,tipo,email);
+
 	}
 }
