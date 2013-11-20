@@ -61,9 +61,13 @@ public class JCineMoviesGerenteApp {
 			cadastrarAction = new PanelCadastrarAction(frame,card);
 			
 			JMenuItem cadastrarCliente = new JMenuItem(cadastrarAction);
+			cadastrarCliente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+			cadastrarCliente.setMnemonic(KeyEvent.VK_C);
 			m_arquivo.add(cadastrarCliente);
 			
 			JMenuItem pesquisaCli = new JMenuItem("Pesquisar Cliente");
+			pesquisaCli.setMnemonic(KeyEvent.VK_P);
+			pesquisaCli.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
 			pesquisaCli.addActionListener(new PesquisaCliAction(frame,card));
 			m_arquivo.add(pesquisaCli);
 			
@@ -107,7 +111,6 @@ public class JCineMoviesGerenteApp {
 		}
 		/**
 		 * @deprecated
-		 * @author Ândrei
 		 *
 		 */
 		private class MyAction extends AbstractAction {
@@ -123,20 +126,5 @@ public class JCineMoviesGerenteApp {
 				this.frame.pack();
 				this.frame.setLocationRelativeTo(null);
 			}
-		}
-		/**
-		 * Launch the application.
-		 */
-		public static void main(String[] args) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-						JCineMoviesGerenteApp window = new JCineMoviesGerenteApp();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
 		}
 }

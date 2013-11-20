@@ -1,0 +1,25 @@
+<?xml version="1.0"?> 
+
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping.dtd"> 
+
+ <hibernate-mapping> 
+     <class name="Cliente" table="cliente">
+         <id name="codigo" column="codigo" type="integer"> 
+             <generator class="assigned"/> 
+         </id> 
+         <property name="cpf" type="string"/> 
+         <property name="rg" type="string"/>
+         <property name="nome" type="string"/>
+         <property name="cep" type="string"/>
+         <property name="bairro" type="string"/>
+         <property name="cidade" type="string"/>
+         <property name="logradouro" type="string"/>
+         <property name="numero" type="string"/>
+         <property name="complemento" type="string"/>
+         <property name="tel_fixo" type="string"/>
+         <property name="tel_celular" type="string"/>
+         <property name="email" type="string"/>
+         <property name="tipo" type="char"/>
+         <property name="cliente_sup" type="integer"/>
+     </class>
+</hibernate-mapping>

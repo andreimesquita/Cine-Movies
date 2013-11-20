@@ -8,7 +8,6 @@ import javax.swing.table.AbstractTableModel;
 
 import pojo.Cliente;
 import dao.ClienteDAO;
-import dao.ClienteDAOImpl;
 
 public class MyTableModel extends AbstractTableModel {
 
@@ -16,12 +15,12 @@ public class MyTableModel extends AbstractTableModel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ClienteDAO cdi = new ClienteDAOImpl();
+	private ClienteDAO cdi = new ClienteDAO();
 	private List<Cliente> lista;
 	private String[] colunas = {"codigo","cpf","rg","tipo","Nome","data do cadastro"};
 	
 	public MyTableModel() {
-		cdi = new ClienteDAOImpl();
+		cdi = new ClienteDAO();
 		try {
 			lista = cdi.getTodosOsClientes();
 		} catch (SQLException e) {

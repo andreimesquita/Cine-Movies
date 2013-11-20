@@ -1,15 +1,13 @@
 package gui;
 
-import gui.action.PanelCadastrarAction;
 import gui.action.CadastrarClienteAction;
 import gui.action.CadastroClienteCancelarAction;
+import gui.action.PanelCadastrarAction;
 
 import java.awt.CardLayout;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,16 +15,14 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import pojo.Cliente;
 
 import com.toedter.calendar.JDateChooser;
-
-import dao.ClienteDAOImpl;
 
 public class AdministrarClientePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -321,7 +317,9 @@ public class AdministrarClientePanel extends JPanel {
 		sb.append(calendar.get(Calendar.YEAR));
 		return sb.toString();
 	}
-	// Apaga os campos da janela
+	/**
+	 * Apaga os campos da tabela.
+	 */
 	public void reset() {
 		tfLogradouro.setText("");
 		tfCidade.setText("");
@@ -339,20 +337,22 @@ public class AdministrarClientePanel extends JPanel {
 		ftfDataCadastro.setText(getDataAtual());
 		tfComplemento.setText("");
 		tfEmitente.requestFocus();
+		
 	}
-	
+	/** 
+	 * Retorna um novo Cliente com os dados.
+	 */
 	public Cliente getCliente() {
 		try {
-			String data_nascimento;
-			Date d = dateChooser.getDate();
-			data_nascimento = d.getDay() + "" + d.getMonth() + "" + d.getYear();
+			Calendar d_n = Calendar.getInstance();
+			d_n.setTime(dateChooser.getDate());
+			String data_nascimento = d_n.get(Calendar.DAY_OF_WEEK) + "-" + d_n.get(Calendar.MONTH) + "-" + d_n.get(Calendar.YEAR);
 			String nome = tfEmitente.getText();
 			String cpf = ftfCpf.getText();				
 			cpf = cpf.replace('-',' ');
 			cpf = cpf.replace('.',' ');
 			cpf = cpf.trim();
 			String rg = ftfRg.getText();
-			String data_cadastro = getDataAtual();
 			String email = tfEmail.getText();
 			String tel_fixo = ftfTelResidencial.getText();
 			tel_fixo = tel_fixo.replaceAll("-","");
@@ -361,15 +361,14 @@ public class AdministrarClientePanel extends JPanel {
 			String cep = ftfCep.getText();
 			cep = cep.replaceAll("-","");
 			String logradouro = tfLogradouro.getText();
-			int numero = Integer.parseInt(ftfNumero.getText());
+			String numero = ftfNumero.getText();
 			String complemento = tfComplemento.getText();
 			String cidade = tfCidade.getText();
 			String bairro = tfBairro.getText();
 			String tipo = ftfTipo.getText();
 			
-			
-			return new Cliente(nome, cpf, rg,data_nascimento, data_cadastro,tel_fixo, telefone_celular, cep, 
-	    		logradouro, numero, complemento,cidade,bairro,tipo,email);
+			return new Cliente(nome, cpf, rg, tel_fixo, telefone_celular, cep, logradouro,
+					 numero, complemento, cidade, bairro, tipo.charAt(0), email);
 		} catch (NullPointerException npe) {
 			return null;
 		}
